@@ -1,5 +1,8 @@
 <?php
 
+use App\Product;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +17,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/products/create' , 'ProductsController@create');
+//Route::resource('/products', 'ProductsController')->except(['create', 'destroy', 'edit']);
+Route::post('/products/create','ProductsController@store');
