@@ -40,14 +40,15 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
+
         $request->validate([
 			// input_name => rules,
 			'name' => 'required | max:25',
 			'price' => 'required | numeric',
 			'description' => 'required',
-			'category' => 'required',
-			'brand' => 'required',
-			'image' => 'required | image'
+			'category_id' => 'required',
+			'brand_id' => 'required',
+			'image' => 'required'
 		], [
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
@@ -56,7 +57,32 @@ class ProductsController extends Controller
 			'title.max' => 'El :attribute debe contener máximo 15 carácteres',
 			'rating.min' => 'El mínimo permitido es 0'
 
-		]);
+        ]);
+
+        $product = new Product;
+
+        $product->name = $request->input('name');
+        $product->price = $request->input('price');
+        $product->description = $request->input('description');
+        $product->category_id = $request->input('category_id');
+        $product->brand_id = $request->input('brand_id');
+
+        $imagen = $request->file('image');
+
+        if ($imagen) {
+            $finalImage = uniqid("img_") . "." . $imagen.extension();
+            $imagen->storePubliclyAs("public/products", $finalImage);
+            $product->image = $finalImage;
+        }
+
+        dd($imagen);
+
+        $product->save();
+
+
+
+        return redirect('/products/create'); //Esto hay que redireccionarlo a otro lado.
+
     }
 
     /**
