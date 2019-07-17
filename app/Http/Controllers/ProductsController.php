@@ -70,12 +70,12 @@ class ProductsController extends Controller
         $imagen = $request->file('image');
 
         if ($imagen) {
-            $finalImage = uniqid("img_") . "." . $imagen.extension();
+            $finalImage = uniqid("img_") . "." . $imagen->extension();
             $imagen->storePubliclyAs("public/products", $finalImage);
             $product->image = $finalImage;
         }
 
-        dd($imagen);
+        //dd($imagen);
 
         $product->save();
 
