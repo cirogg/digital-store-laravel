@@ -22,6 +22,7 @@ $factory->define(User::class, function (Faker $faker) {
         'name' => $faker->name,
         'email' => $faker->unique()->safeEmail,
         'surname' => $faker->name,
+        'nickname' => $faker->name,
         'email_verified_at' => now(),
         'avatar' => $faker->image($filePath, 300, 300, null, false),
 			  'country' => $faker->country,

@@ -40,6 +40,20 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="nickname" class="col-md-4 col-form-label text-md-right">Nombre de Usuario</label>
+
+                            <div class="col-md-6">
+                                <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" value="{{ old('nickname') }}" autocomplete="nickname" autofocus>
+
+                                @error('nickname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -58,7 +72,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
-
+                                <small id="passwordHelp" class="form-text text-muted">Su contraseña debe incluir "DH".</small>
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -79,7 +93,7 @@
                             <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('País') }}</label>
 
                             <div class="col-md-6">
-                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" country="country" value="{{ old('country') }}" autocomplete="country" autofocus>
+                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" autocomplete="country" autofocus>
 
                                 @error('country')
                                     <span class="invalid-feedback" role="alert">
@@ -89,9 +103,18 @@
                             </div>
                         </div>
 
-                        <div class="form-group">
-                            <label for="avatar">Imágen Perfil</label>
-                            <input name="avatar" type="file" class="form-control-file" id="avatar">
+                        <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">Imágen Perfil</label>
+
+                            <div class="col-md-6">
+                                <input type="file" class="form-control-file @error('avatar') is-invalid @enderror" name="avatar" autofocus id="avatar">
+                                
+                                @error('avatar')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>    
                         </div>
 
                         <div class="form-group row mb-0">

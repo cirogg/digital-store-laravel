@@ -148,6 +148,7 @@ return [
 
     'attributes' => [
         'name'                  => 'nombre',
+        'surname'               => 'apellido',
         'username'              => 'usuario',
         'email'                 => 'correo electrónico',
         'first_name'            => 'nombre',
@@ -177,5 +178,7 @@ return [
         'time'                  => 'hora',
         'subject'               => 'asunto',
         'message'               => 'mensaje',
+        'avatar'                => 'imágen perfil',
+        'nickname'              => 'usuario'
     ],
 ];

@@ -50,8 +50,12 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'surname' => ['required', 'string', 'max:255'],
+            'country' => ['required', 'string', 'max:255'],
+            'nickname' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/DH/'],
+            'avatar' => ['required', 'image']
         ]);
     }
 
@@ -62,11 +66,28 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {
+    {   
+        // Iniciamos el request
+        $request = request();
+
+        //Obtenemos la imágen subida
+        $profileImage = $request->file('avatar');
+
+        //Editamos su nombre
+        $profileImageName = uniqid('img-') . '.' . $profileImage->extension();
+        
+        //Guardamos la imagen
+        $profileImage->storePubliclyAs("public/avatars", $profileImageName);
+        
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'surname' => $data['surname'],
+            'nickname' => $data['nickname'],
+            'country' => $data['country'],
+            'avatar' => $profileImageName
+
         ]);
     }
 }
