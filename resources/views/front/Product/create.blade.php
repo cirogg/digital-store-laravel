@@ -14,7 +14,7 @@
     @endif
 
 
-    <form action="/products/create" method="post" enctype="multipart/form-data">
+    <form action="/products" method="post" enctype="multipart/form-data">
 
         @csrf
         <div class="row">

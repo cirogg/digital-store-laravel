@@ -19,5 +19,9 @@ Route::get('/', function () {
 });
 
 Route::get('/products/create' , 'ProductsController@create');
-//Route::resource('/products', 'ProductsController')->except(['create', 'destroy', 'edit']);
-Route::post('/products/create','ProductsController@store');
+Route::resource('/products', 'ProductsController')->except(['create', 'destroy', 'edit']);
+//Route::post('/products/create','ProductsController@store');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

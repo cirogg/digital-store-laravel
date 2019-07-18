@@ -42,7 +42,7 @@ class ProductsController extends Controller
     {
 
         $request->validate([
-			// input_name => rules,
+			
 			'name' => 'required | max:25',
 			'price' => 'required | numeric',
 			'description' => 'required',
@@ -53,11 +53,9 @@ class ProductsController extends Controller
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
 			'required' => 'El campo :attribute es obligatorio',
-			'numeric' => 'El campo :attribute debe ser numérico',
-			'title.max' => 'El :attribute debe contener máximo 15 carácteres',
-			'rating.min' => 'El mínimo permitido es 0'
-
-        ]);
+			'numeric' => 'El campo :attribute debe ser numérico',           
+            
+            ]);
 
         $product = new Product;
 
