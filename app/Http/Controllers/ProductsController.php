@@ -22,18 +22,12 @@ class ProductsController extends Controller
     public function searchByName(Request $request)
     {
         $name = $request->search;
-        $request->validate([
-            'search' => 'exists:products,name'
-        ], 
-        [
-            'exists' => 'No encontramos el producto'
-        ]);
 
-        $productFound = Product::where('name', $name)->first();
+        $productsFound = Product::where('name', 'LIKE', "%$name%")->paginate(9);
 
         //dd($productFound);
 
-        return view('front.Product.show', compact('productFound') );
+        return view('front.Product.searchShow', compact('productsFound') );
     }
 
     /**
