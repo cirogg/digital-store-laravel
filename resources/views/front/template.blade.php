@@ -8,7 +8,8 @@
 	<link rel="stylesheet" href="/css/app.css">
 </head>
 <body>
-    {{-- @include('front.navbar') --}}
+    
+    @include('front.navbar')
 
     <div class="container">
         @yield('mainContent')

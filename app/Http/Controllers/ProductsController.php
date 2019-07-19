@@ -18,6 +18,24 @@ class ProductsController extends Controller
         //
     }
 
+    //Metodo para Search del Navbar
+    public function searchByName(Request $request)
+    {
+        $name = $request->search;
+        $request->validate([
+            'search' => 'exists:products,name'
+        ], 
+        [
+            'exists' => 'No encontramos el producto'
+        ]);
+
+        $productFound = Product::where('name', $name)->first();
+
+        //dd($productFound);
+
+        return view('front.Product.show', compact('productFound') );
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -48,13 +66,17 @@ class ProductsController extends Controller
 			'description' => 'required',
 			'category_id' => 'required',
 			'brand_id' => 'required',
-			'image' => 'required'
+			'image' => 'required | image'
 		], [
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
 			'required' => 'El campo :attribute es obligatorio',
 			'numeric' => 'El campo :attribute debe ser numérico',           
-            
+            'category_id.required' => 'Debes seleccionar una categoría',
+            'brand_id.required' => 'Debes seleccionar una marca',
+            'image.required' => 'Selecciona una imagen descriptiva del producto',
+            'image.image' => 'Formato de imágen no válido',
+            'price.required' => 'Ponele precio o nos fundimos'
             ]);
 
         $product = new Product;
@@ -91,7 +113,9 @@ class ProductsController extends Controller
      */
     public function show($id)
     {
-        //
+        $productFound = Product::findOrFail($id);
+
+        return view('front.Product.show', compact('productFound') );
     }
 
     /**
@@ -102,7 +126,11 @@ class ProductsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $productEdit = Product::findOrFail($id);
+        $brands = \App\Brand::orderBy('name')->get();
+        $categories = \App\Category::orderBy('name')->get();
+
+        return view('front.Product.edit', compact('productEdit', 'brands', 'categories') );
     }
 
     /**
@@ -114,7 +142,50 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $productUpdate = Product::findOrFail($id);
+
+        $request->validate([
+			
+			'name' => 'required | max:25',
+			'price' => 'required | numeric',
+			'description' => 'required',
+			'category_id' => 'required',
+			'brand_id' => 'required',
+			'image' => 'image'
+		], [
+            'name.required' => 'El nombre del producto es obligatorio',
+            'name.max' => 'El máximo permitido es 10',
+			'required' => 'El campo :attribute es obligatorio',
+			'numeric' => 'El campo :attribute debe ser numérico',           
+            'category_id.required' => 'Debes seleccionar una categoría',
+            'brand_id.required' => 'Debes seleccionar una marca',
+            'image.image' => 'Formato de imágen no válido',
+            'price.required' => 'Ponele precio o nos fundimos'
+            ]);
+
+        $productUpdate = new Product;
+
+        $productUpdate->name = $request->input('name');
+        $productUpdate->price = $request->input('price');
+        $productUpdate->description = $request->input('description');
+        $productUpdate->category_id = $request->input('category_id');
+        $productUpdate->brand_id = $request->input('brand_id');
+
+        $imagen = $request->file('image');
+
+        if ($imagen) {
+            $finalImage = uniqid("img_") . "." . $imagen->extension();
+            $imagen->storePubliclyAs("public/products", $finalImage);
+            $productUpdate->image = $finalImage;
+        }
+
+
+        $productUpdate->save();
+
+
+
+        return redirect('/products/create'); //Esto hay que redireccionarlo a otro lado.
+
     }
 
     /**
@@ -125,6 +196,10 @@ class ProductsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $productDestroy = Product::findOrFail($id);
+
+        $productDestroy->delete();
+
+        return redirect('/products/create');
     }
 }

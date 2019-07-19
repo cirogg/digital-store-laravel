@@ -19,8 +19,12 @@ Route::get('/', function () {
 });
 
 Route::get('/products/create' , 'ProductsController@create');
+Route::get('/products/{id}/edit', 'ProductsController@edit');
+//Ruta para buscador de productos del Navbar
+Route::get('/products/search', 'ProductsController@searchByName');
 Route::resource('/products', 'ProductsController')->except(['create', 'destroy', 'edit']);
 //Route::post('/products/create','ProductsController@store');
+Route::delete('/products/{id}', 'ProductsController@destroy');
 
 Auth::routes();
 

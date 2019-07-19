@@ -21,6 +21,16 @@
                     <a class="nav-link" href="">CIRO</a>
                 </li>
             </ul>
+
+            <form class="form-inline" action="/products/search">
+                    <input name="search" class="form-control mr-sm-2 @error('search') is-invalid @enderror" type="search" placeholder="Buscar..." aria-label="Search">
+                    @error('search')
+                    <span class="invalid-tooltip">
+                        {{$message}}
+                    </span>
+                    @enderror
+                    <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
+            </form>
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ml-auto">
                 <!-- Authentication Links -->

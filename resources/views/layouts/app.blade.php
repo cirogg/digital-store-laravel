@@ -23,7 +23,7 @@
     <div id="app">
 
         {{-- @include('/resources/views/front/partials/navbar'); --}}
-        @include('partials.navbar');
+        @include('front.navbar');
         <main class="py-4">
             @yield('content')
         </main>
