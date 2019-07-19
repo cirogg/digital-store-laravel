@@ -18,7 +18,7 @@
                 </li>
 
                 <li class="nav-item active">
-                    <a class="nav-link" href="">CIRO</a>
+                    <a class="nav-link" href="">Carrito</a>
                 </li>
             </ul>
 
