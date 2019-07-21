@@ -21,13 +21,21 @@ class ProductsController extends Controller
     //Metodo para Search del Navbar
     public function searchByName(Request $request)
     {
+        $item = $request->input('search');
+        $request->validate([
+            'search' => 'required'
+        ],
+        [
+            'search.required' => 'Ingresa el producto que deseas encontrar'
+        ]);
+
         $name = $request->search;
 
         $productsFound = Product::where('name', 'LIKE', "%$name%")->paginate(9);
 
         //dd($productFound);
 
-        return view('front.Product.searchShow', compact('productsFound') );
+        return view('front.Product.searchShow', compact('productsFound', 'item') );
     }
 
     /**

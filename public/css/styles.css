@@ -1,0 +1,586 @@
+/* BOOTSTRAP */
+@import "bootstrap.min.css";
+/* NORMALIZE */
+@import "normalize.css";
+/* FONT AWESOME */
+@import url("https://use.fontawesome.com/releases/v5.8.1/css/all.css");
+/* GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css?family=Share+Tech');
+
+img {
+  width: 100%;
+}
+
+a {
+  text-decoration: none!important; /* CANCELA DECORATION BOOTSTRAP */
+  color: inherit;
+}
+
+a:hover {
+  color: inherit; /* CANCELA HOVER BOOTSTRAP */
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body {
+  font-family: 'Share Tech', sans-serif;
+}
+
+.bg-dark {
+  background-color: #000!important;
+}
+
+/*
+                      ESTILOS GENERALES
+*/
+
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.orange {
+  color: #ff6961;
+  text-transform: uppercase;
+}
+
+/* BARRA NAVEGACIÓN */
+
+
+
+
+
+.navbar-brand {
+  font-size: 1.5em;
+}
+
+.fa-user-alt {
+  color: rgb(47, 153, 9);
+}
+
+.fa-shopping-cart {
+  color: rgb(22, 114, 222);
+}
+
+/* LOGO Y NOMBRE */
+
+.logo {
+  font-size: 2rem;
+  margin-top: 80px;
+}
+
+/* BANNER */
+
+.banner {
+  text-align: center;
+  position: relative;
+  width: 100%;
+  background-image: url(/storage/images/banner-2.jpg);
+  height: 180px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.banner h2 {
+  padding: 5px;
+  font-size: 2em;
+  background-color: rgba(255, 255, 255, 0.8);
+  width: 70%;
+  border-radius: 20px;
+}
+
+.slogan {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sociales {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.banner img {
+  width: 30px;
+  margin: 0 0 5px 5px;
+
+  box-shadow: 0px 3px 26px -6px rgba(0,0,0,1);
+}
+
+/* PRODUCTS NAV CATEGORIAS*/
+
+.products-nav {
+  width: 95%;
+  margin: 20px auto;
+}
+
+.products-nav ul {
+  font-size: 1.7em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.products-nav ul li {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.products-nav ul li a {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 130px;
+  border-radius: 100%;
+  background-color: #000;
+
+  box-shadow: 0px 3px 26px -6px rgba(0,0,0,1);
+  transition: all .5s ease;
+}
+
+.products-nav ul li a i {
+ font-size: 2em;
+ color: #ff6961;
+ margin-bottom: 5px;
+}
+
+/* SECTOR OFERTAS */
+
+.oferta1{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ff6961;
+  height: 350px;
+  color: white;
+}
+
+.oferta1 h2, .oferta1 h3{
+  font-size: 3em;
+}
+
+.oferta2{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #77dd77;
+  height: 350px;
+  color: white;
+}
+
+.oferta2 h2{
+  font-size: 5em;
+  margin: 0px;
+}
+
+.oferta2 h3{
+  font-size: 4em;
+  margin: 0px;
+}
+
+.button-oferta{
+  font-size: 2em;
+  border-radius: 30px;
+  padding: 10px 30px;
+  border: none;
+  color: #ff6961;
+  background-color: white;
+
+  box-shadow: 0px 3px 26px -6px rgba(0,0,0,1);
+}
+
+/* SECTION ARTICULOS */
+
+.section-articulos {
+  margin-bottom: 30px;
+}
+
+.articulo{
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 5px 0;
+  padding: 0 0 10px 0;
+}
+
+.articulo h4{
+  margin: 0;
+}
+
+.button-buy-now{
+  font-size: 2em;
+  border-radius: 30px;
+  padding: 10px 30px;
+
+  box-shadow: 0px 3px 26px -6px rgba(0,0,0,1);
+  border: none;
+  background-color: #ff6961;
+  color: white;
+  text-transform: uppercase;
+}
+
+/* FOOTER */
+
+.main-footer {
+  color: #fff;
+  background-color: #000;
+  }
+
+.nav-footer ul {
+  font-size: 1.5em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.main-footer p {
+  border-top: solid 1px #fff;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.2em;
+}
+
+/* ESTILOS SECTION PROFILE Y FAQ */
+
+.profile-container {
+  margin-top: 80px;
+}
+
+.profile-avatar {
+  max-width: 200px;
+}
+
+.profile-form label {
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+.profile-form input,
+.profile-form select,
+.invalid-feedback {
+  font-size: 1.8em
+}
+
+.profile-form span {
+  font-size: 1.4em;
+}
+
+.section-container {
+  width: 95%;
+  margin: 30px auto;
+}
+
+.section-container h2, .section-articulos h2 {
+  font-size: 3em;
+  text-align: center;
+  background-color: #000;
+  border-radius: 20px;
+  width: 90%;
+  margin: 20px auto;
+  color: #fff;
+  padding: 5px;
+
+  box-shadow: 0px 3px 26px -6px rgba(0,0,0,1);
+}
+
+.faq-text {
+  font-size: 1.6em;
+}
+
+
+/* ESTILOS DETALLE.PHP */
+
+.container-detalle{
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 10px;
+  margin-top: 90px;
+}
+
+.container-datos-producto{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content:  space-between;
+  padding: 10px;
+}
+
+.container-datos-producto .button-oferta{
+  color: white;
+  background-color: #ff6961;
+}
+
+.container-datos-producto p{
+  font-size:1.2em;
+  width: 75%;
+  color: grey;
+}
+
+.container-datos-producto h2{
+  margin-bottom: 15px;
+}
+
+.container-img {
+  display: flex;
+  justify-content: center;
+}
+
+.container-img img{
+  width: 75%;
+  height: auto;
+  max-width: 284px;
+  max-height: 284px;
+}
+
+
+@media ( min-width: 574px ){
+
+  .container-detalle{
+    flex-direction: column;
+  }
+
+  .container-img {
+    align-items: center;
+  }
+
+}
+
+
+/* MEDIA QUERIES PAGINA INICIO */
+
+@media ( min-width: 1050px ) {
+  .products-nav ul {
+    flex-wrap: nowrap;
+  }
+}
+
+@media ( min-width: 992px ) {
+
+  .main-nav ul {
+    justify-content: flex-end;
+  }
+
+  .products-nav {
+    margin: 40px auto;
+  }
+
+  .products-nav ul li a {
+    width: 160px;
+    height: 160px;
+  }
+
+  .banner img {
+    width: 50px;
+  }
+
+  .products-nav ul li a:hover {
+    transform: scale(1.3);
+    background-color: #ff6961;
+  }
+  .products-nav ul li a:hover i {
+    color: #fff;
+  }
+
+}
+
+/* FORMATO FORMULARIO */
+
+.formRegister {
+  padding-bottom: 5%;
+}
+
+
+
+.main-container-form{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.container-form{
+  width: 90%;
+  max-width: 600px;
+}
+
+.main-container-form .labelLogin{
+  font-size: 1.7em;
+  margin: 0;
+}
+
+.main-container-form .chkInputRemember{
+  width: 20px;
+  height: 20px;
+}
+
+.main-container-form input {
+
+  border: 0;
+  border-bottom: 1px solid #ccc;
+  width: 90%;
+  /*max-width: 900px;*/
+  padding: 0;
+  margin: 5% auto;
+  font-size: large;
+}
+
+
+
+.chkRemember{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  margin: 0%;
+
+}
+
+.chkRemember input{
+  margin: 5px;
+}
+
+.main-container-form select {
+  font-size: large;
+  width: 90%;
+  margin-top: 9px;
+  margin-bottom: 5px;
+}
+
+.button-form {
+  margin: 16px 5px;
+  background-color: black;
+  border: 0;
+  border-radius: 2px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.6rem;
+  font-family: inherit;
+  height: 40px;
+  width: 70%;
+}
+
+.boxRegistry div {
+  text-align: center;
+  font-size: 1.8em;
+}
+
+/* PAGINA DE LOGIN */
+
+.forgot-password {
+  display: block;
+  margin: 16px 0 0;
+  font-size: 1.4rem;
+  background-color: transparent;
+  border: 0;
+  color: #ff6961;
+  text-align: center;
+}
+
+.join-formLogin {
+  display: block;
+  margin: 12px 0 0;
+  font-size: 1.4rem;
+  color: black;
+  text-align: center;
+  padding-bottom: 5%;
+}
+
+.join-formLogin a {
+  text-decoration: none;
+    color: #ff6961;
+  font-size: 1.4rem;
+}
+
+/* PAGINA DE REGISTRO */
+
+.main-container-form label {
+  font-size: 1.4rem;
+  text-align: left;
+ }
+  .avatarInput{
+    border:0px;
+  }
+
+  .message-register{
+    text-align: left;
+    margin: 5%;
+  }
+
+@media (min-width: 768px) {
+  .formRegister{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    text-align: left;
+    padding: 5%;
+  }
+
+  .boxRegistry{
+    width: 50%;
+  }
+}
+
+@media ( min-width: 992px ) {
+  .main-container-form,
+  .profile-container {
+    margin-top: 0;
+  }
+
+
+
+}
+
+
+/* MEDIA QUERY  */
+@media ( min-width: 768px ) {
+
+  .banner {
+    height: 300px;
+  }
+
+  .banner h2 {
+    width: 50%;
+    font-size: 2.3em;
+  }
+
+}
+
+@media ( min-width: 548px ) {
+  .main-nav ul li a span {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .products-nav ul li {
+    width: 33.3%;
+  }
+
+
+
+
+}
+
+

@@ -18,6 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/faq', function () {
+    return view('front.faq');
+});
+
 Route::get('/products/create' , 'ProductsController@create');
 Route::get('/products/{id}/edit', 'ProductsController@edit');
 //Ruta para buscador de productos del Navbar
