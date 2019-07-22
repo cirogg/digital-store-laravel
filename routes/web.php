@@ -30,6 +30,9 @@ Route::resource('/products', 'ProductsController')->except(['create', 'destroy',
 //Route::post('/products/create','ProductsController@store');
 Route::delete('/products/{id}', 'ProductsController@destroy');
 
+//Rutas User
+Route::resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

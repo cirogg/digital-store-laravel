@@ -1,4 +1,4 @@
-<footer class="main-footer bg-dark">
+<footer class="main-footer bg-dark mt-5">
 
         <nav class="nav-footer container">
           <ul>

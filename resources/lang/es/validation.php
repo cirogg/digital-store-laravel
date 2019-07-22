@@ -179,6 +179,7 @@ return [
         'subject'               => 'asunto',
         'message'               => 'mensaje',
         'avatar'                => 'imágen perfil',
-        'nickname'              => 'usuario'
+        'nickname'              => 'usuario',
+        'login'                 => 'Usuario o Correo'
     ],
 ];

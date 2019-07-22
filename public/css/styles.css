@@ -7,9 +7,6 @@
 /* GOOGLE FONTS */
 @import url('https://fonts.googleapis.com/css?family=Share+Tech');
 
-img {
-  width: 100%;
-}
 
 a {
   text-decoration: none!important; /* CANCELA DECORATION BOOTSTRAP */
@@ -272,10 +269,6 @@ body {
 
 .profile-form input,
 .profile-form select,
-.invalid-feedback {
-  font-size: 1.8em
-}
-
 .profile-form span {
   font-size: 1.4em;
 }

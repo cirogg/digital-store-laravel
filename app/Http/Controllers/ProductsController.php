@@ -22,6 +22,7 @@ class ProductsController extends Controller
     public function searchByName(Request $request)
     {
         $item = $request->input('search');
+        
         $request->validate([
             'search' => 'required'
         ],
@@ -33,9 +34,11 @@ class ProductsController extends Controller
 
         $productsFound = Product::where('name', 'LIKE', "%$name%")->paginate(9);
 
+        $countItem = count($productsFound);
+
         //dd($productFound);
 
-        return view('front.Product.searchShow', compact('productsFound', 'item') );
+        return view('front.Product.searchShow', compact('productsFound', 'item', 'countItem') );
     }
 
     /**

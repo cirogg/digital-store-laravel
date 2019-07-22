@@ -5,6 +5,11 @@
 
 @section('mainContent')
 <h1 class="mt-3 mb-3">Resultado de la búsqueda de "{{ $item }}"</h1>
+
+@if ($countItem)
+<h3>Se encontraron: <b>{{ $countItem }}</b> productos</h3>
+    
+@endif
 {{-- {{dd($productsFound)}} --}}
 
 
