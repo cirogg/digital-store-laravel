@@ -22,8 +22,17 @@ Route::get('/faq', function () {
     return view('front.faq');
 });
 
-Route::get('/products/create' , 'ProductsController@create');
-Route::get('/products/{id}/edit', 'ProductsController@edit');
+// Route::get('/products/create' , 'ProductsController@create');
+// Route::get('/products/{id}/edit', 'ProductsController@edit');
+
+// Si no esta logueado, redirecciona al Login
+Route::middleware('auth')->group(function ()
+{
+	Route::get('/products/create', 'ProductsController@create');
+	Route::delete('/products/{id}', 'ProductsController@destroy');
+	Route::get('/products/{id}/edit', 'ProductsController@edit');
+});
+
 //Ruta para buscador de productos del Navbar
 Route::get('/products/search', 'ProductsController@searchByName');
 Route::resource('/products', 'ProductsController')->except(['create', 'destroy', 'edit']);
@@ -31,6 +40,9 @@ Route::resource('/products', 'ProductsController')->except(['create', 'destroy',
 Route::delete('/products/{id}', 'ProductsController@destroy');
 
 //Rutas User
+
+
+
 Route::resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
 
 Auth::routes();

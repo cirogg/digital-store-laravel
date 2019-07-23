@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = 'index';
 
     /**
      * Create a new controller instance.
@@ -66,7 +66,7 @@ class RegisterController extends Controller
      * @return \App\User
      */
     protected function create(array $data)
-    {   
+    {
         // Iniciamos el request
         $request = request();
 
@@ -75,10 +75,10 @@ class RegisterController extends Controller
 
         //Editamos su nombre
         $profileImageName = uniqid('img-') . '.' . $profileImage->extension();
-        
+
         //Guardamos la imagen
         $profileImage->storePubliclyAs("public/avatars", $profileImageName);
-        
+
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
