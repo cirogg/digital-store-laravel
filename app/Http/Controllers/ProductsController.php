@@ -15,14 +15,14 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     //Metodo para Search del Navbar
     public function searchByName(Request $request)
     {
         $item = $request->input('search');
-        
+
         $request->validate([
             'search' => 'required'
         ],
@@ -65,7 +65,7 @@ class ProductsController extends Controller
     {
 
         $request->validate([
-			
+
 			'name' => 'required | max:25',
 			'price' => 'required | numeric',
 			'description' => 'required',
@@ -76,7 +76,7 @@ class ProductsController extends Controller
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
 			'required' => 'El campo :attribute es obligatorio',
-			'numeric' => 'El campo :attribute debe ser numérico',           
+			'numeric' => 'El campo :attribute debe ser numérico',
             'category_id.required' => 'Debes seleccionar una categoría',
             'brand_id.required' => 'Debes seleccionar una marca',
             'image.required' => 'Selecciona una imagen descriptiva del producto',
@@ -150,7 +150,7 @@ class ProductsController extends Controller
         $productUpdate = Product::findOrFail($id);
 
         $request->validate([
-			
+
 			'name' => 'required | max:25',
 			'price' => 'required | numeric',
 			'description' => 'required',
@@ -161,7 +161,7 @@ class ProductsController extends Controller
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
 			'required' => 'El campo :attribute es obligatorio',
-			'numeric' => 'El campo :attribute debe ser numérico',           
+			'numeric' => 'El campo :attribute debe ser numérico',
             'category_id.required' => 'Debes seleccionar una categoría',
             'brand_id.required' => 'Debes seleccionar una marca',
             'image.image' => 'Formato de imágen no válido',
