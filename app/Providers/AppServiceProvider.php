@@ -25,5 +25,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
+
+        view()->composer('front.navbar', function ($view) {
+            $view->with([
+                'categories' => \App\Category::orderBy('name')->get(),
+                ]);
+        });
+
     }
 }

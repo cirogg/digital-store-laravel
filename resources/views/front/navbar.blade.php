@@ -13,9 +13,17 @@
 
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item active">
-                    <a class="nav-link" href="">Categorías</a>
-                </li>
+                    <li class="dropdown">
+                        <a class="nav-link active bg-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Categorías
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                          @foreach ($categories as $category)
+                          <a class="dropdown-item" href="#">{{$category->name}}</a>
+                          @endforeach
+
+                        </div>
+                    </li>
 
                 <li class="nav-item active">
                     <a class="nav-link" href="">Carrito</a>
