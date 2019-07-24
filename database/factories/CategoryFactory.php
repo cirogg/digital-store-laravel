@@ -17,7 +17,7 @@ $factory->define(Category::class, function (Faker $faker) {
 				'Juegos',
 				'Teclados',
 				'Parlantes',
-        'testaso',
+        'Laptops',
 			])
     ];
 });

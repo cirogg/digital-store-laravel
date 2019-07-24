@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      $users = factory(User::class)->times(10)->create();
+      $users = factory(User::class)->times(30)->create();
       $products = factory(Product::class)->times(40)->create();
       $brands = factory(Brand::class)->times(10)->create();
       $categories = factory(Category::class)->times(10)->create();

@@ -14,7 +14,7 @@ $factory->define(Brand::class, function (Faker $faker) {
         'Corsair',
         'Asus',
         'LG',
-        'BMW',
+        'Lenovo',
         'Steelseries',
         'Logitech',
         'Razer'

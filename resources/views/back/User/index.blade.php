@@ -11,7 +11,11 @@
 @endphp
 
 <h1 class="mt-3">Usuarios Registrados: <b>{{ $countUsers }}</b></h1>
+@if ($last < $countUsers)
 <h3>Mostrando del {{$first}} al {{$last}}</h3>
+@else
+<h3>Mostrando del {{$first}} al {{$countUsers}}</h3>
+@endif
 
 <div class="text-center">
     <form class="form-inline mb-3" action="/user/search">
