@@ -42,7 +42,7 @@ Route::delete('/products/{id}', 'ProductsController@destroy');
 //Rutas User
 
 
-
+Route::get('/users/search', 'usersController@searchByName');
 Route::resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
 
 Auth::routes();

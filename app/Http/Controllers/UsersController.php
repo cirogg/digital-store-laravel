@@ -78,6 +78,29 @@ class UsersController extends Controller
         //
     }
 
+
+    public function searchByEmail(Request $request)
+    {
+        $item = $request->input('search');
+
+        $request->validate([
+            'search' => 'required'
+        ],
+        [
+            'search.required' => 'Ingresa el mail que deseas encontrar'
+        ]);
+
+        $email = $request->search;
+
+        $usersFound = User::where('email', 'LIKE', "%$email%")->paginate(3);
+
+        $countItem = count($usersFound);
+
+        //dd($productFound);
+
+        return view('back.user.index', compact('usersFound', 'item', 'countItem') );
+    }
+
     /**
      * Remove the specified resource from storage.
      *

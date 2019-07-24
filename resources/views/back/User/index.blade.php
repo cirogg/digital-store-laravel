@@ -1,7 +1,7 @@
 @extends('front.template')
 
 @section('pageTitle', 'Listado de Usuarios')
-    
+
 @section('mainContent')
 
 @php
@@ -24,7 +24,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
     </form>
 </div>
-    
+
 
 
 
@@ -42,13 +42,13 @@
                             <button class="btn btn-warning" type="submit"><i class="fas fa-user"></i></button>
                         </form>
                 </div>
-            </div>    
+            </div>
         </li>
         @endforeach
-    </ul>        
+    </ul>
 
-    
-    
+
+
 
 
 {{ $allUsers->links() }}
