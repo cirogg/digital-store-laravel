@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 
-class UsersController extends Controller
+class CartsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +13,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $allUsers = User::paginate(20);
-
-        $countUsers = count(User::all());
-
-        return view('back.User.index', compact('allUsers', 'countUsers'));
+        //
     }
 
     /**
@@ -50,9 +45,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $userFound = User::findOrFail($id);
-
-        return view('front.User.show', compact($userFound));
+        //
     }
 
     /**
@@ -76,26 +69,6 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         //
-    }
-
-
-    public function searchByEmail(Request $request)
-    {
-        $item = $request->input('search');
-
-        $request->validate([
-            'search' => 'required'
-        ],
-        [
-            'search.required' => 'Ingresa el mail que deseas encontrar'
-        ]);
-
-        $email = $request->search;
-
-        $usersFound = User::where('email', 'LIKE', $email)->paginate(3);
-
-
-        return view('back.User.index', compact('usersFound', 'item') );
     }
 
     /**

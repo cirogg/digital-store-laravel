@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Cart;
 use Illuminate\Http\Request;
-use App\User;
 
-class UsersController extends Controller
+class CartController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,11 +14,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $allUsers = User::paginate(20);
-
-        $countUsers = count(User::all());
-
-        return view('back.User.index', compact('allUsers', 'countUsers'));
+        //
     }
 
     /**
@@ -45,23 +41,21 @@ class UsersController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Cart $cart)
     {
-        $userFound = User::findOrFail($id);
-
-        return view('front.User.show', compact($userFound));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Cart $cart)
     {
         //
     }
@@ -70,41 +64,21 @@ class UsersController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Cart $cart)
     {
         //
-    }
-
-
-    public function searchByEmail(Request $request)
-    {
-        $item = $request->input('search');
-
-        $request->validate([
-            'search' => 'required'
-        ],
-        [
-            'search.required' => 'Ingresa el mail que deseas encontrar'
-        ]);
-
-        $email = $request->search;
-
-        $usersFound = User::where('email', 'LIKE', $email)->paginate(3);
-
-
-        return view('back.User.index', compact('usersFound', 'item') );
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Cart $cart)
     {
         //
     }
