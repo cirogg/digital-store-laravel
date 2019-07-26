@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Product;
 use Illuminate\Http\Request;
 
 class CartsController extends Controller
@@ -14,7 +15,7 @@ class CartsController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -46,7 +47,15 @@ class CartsController extends Controller
      */
     public function show($id)
     {
-        //
+        $productsId = Cart::select('product_id')->where('user_id', $id)->get();
+
+        $productsFound = Product::find($productsId);
+
+        $totalPrice = Product::find($productsId)->sum('price');
+
+        //dd($totalPrice);
+
+        return view('front.Cart.show', compact('productsFound', 'totalPrice'));
     }
 
     /**

@@ -27,10 +27,13 @@ Route::get('/faq', function () {
 
 // Si no esta logueado, redirecciona al Login
 Route::middleware('auth')->group(function ()
-{
+{	
+	//Products
 	Route::get('/products/create', 'ProductsController@create');
 	Route::delete('/products/{id}', 'ProductsController@destroy');
 	Route::get('/products/{id}/edit', 'ProductsController@edit');
+	//Cart
+	Route::get('/cart/{id}', 'CartsController@show');
 });
 
 //Ruta para buscador de productos del Navbar
@@ -40,12 +43,12 @@ Route::resource('/products', 'ProductsController')->except(['create', 'destroy',
 Route::delete('/products/{id}', 'ProductsController@destroy');
 
 //Rutas User
-
-
 Route::get('/users/search', 'UsersController@searchByEmail');
 Route::resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
 
-
 Auth::routes();
+
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');

@@ -602,5 +602,14 @@ body {
 
 
 }
+/* CART */
 
+.product-cart{
+  position: relative;
+}
 
+.delete-cart {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
