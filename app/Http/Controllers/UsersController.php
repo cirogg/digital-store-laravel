@@ -84,16 +84,15 @@ class UsersController extends Controller
         $item = $request->input('search');
 
         $request->validate([
-            'search-user' => 'required'
+            'search' => 'required'
         ],
         [
-            'search-user.required' => 'Ingresa el mail que deseas encontrar'
+            'search.required' => 'Ingresa el mail que deseas encontrar'
         ]);
 
         $email = $request->search;
 
-        $userFound = User::where('email', 'LIKE', $email)->paginate(3);
-
+        $userFound = User::where('email', 'LIKE', $email)->paginate(1);
 
         return view('back.User.profile', compact('userFound', 'item') );
     }

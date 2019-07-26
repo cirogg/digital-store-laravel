@@ -20,7 +20,7 @@
           <div class="card-body">
             <h5> {{ $user->name  }} </h5>
             <p class="card-text">{{ $user->surname }}</p>
-            <p class="card-text">Mail: ${{ $user->email  }}</p>
+            <p class="card-text">Mail: {{ $user->email  }}</p>
             <p class="card-text">Nickname: ${{ $user->nickname  }}</p>
             <p class="card-text">País: ${{ $user->country }}</p>
             {{-- <div class="form-inline ">
