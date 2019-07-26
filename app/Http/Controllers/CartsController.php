@@ -35,8 +35,16 @@ class CartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        //
+    {   
+        $userId = $request->input('user_id');
+        $productId = $request->input('product_id');
+
+        $productCart = Cart::create([
+            'user_id' => $userId,
+            'product_id' => $productId
+        ]);
+
+        return redirect("/cart/$userId");
     }
 
     /**
@@ -51,9 +59,9 @@ class CartsController extends Controller
 
         $productsFound = Product::find($productsId);
 
-        $totalPrice = Product::find($productsId)->sum('price');
+        $totalPrice = Product::find($productsId)->where('is_paid', 0)->sum('price');
 
-        //dd($totalPrice);
+        //dd($productsFound);
 
         return view('front.Cart.show', compact('productsFound', 'totalPrice'));
     }
@@ -87,8 +95,11 @@ class CartsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id, $productId)
+    {   
+        $productFromCart = Cart::where([ ['user_id', $id], ['product_id', $productId] ])->delete();
+        //dd($productFromCart);
+        
+        return redirect('/cart/'. $id);
     }
 }

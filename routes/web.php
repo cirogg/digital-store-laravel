@@ -34,6 +34,8 @@ Route::middleware('auth')->group(function ()
 	Route::get('/products/{id}/edit', 'ProductsController@edit');
 	//Cart
 	Route::get('/cart/{id}', 'CartsController@show');
+	Route::delete('/cart/{id}/{productId}', 'CartsController@destroy');
+	Route::post('/cart', 'CartsController@store');
 });
 
 //Ruta para buscador de productos del Navbar

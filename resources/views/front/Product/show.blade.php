@@ -22,9 +22,19 @@
             <h5>Categoria: {{ $productFound->category->name  }} </h5>
             <h5>Marca: {{ $productFound->brand->name  }} </h5>
           </div>
+          @if (Auth::user())
+              <form action="/cart" method="post">
+                  @csrf
+                  <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                  <input type="hidden" name="product_id" value="{{$productFound->id}}">
+                  <button class="button-oferta" type="submit">Buy NOW</button>
+              </form>
+                        
+            @else
+              <a href="/login"><i class="fas fa-cart-plus"></i></a>
+            @endif
 
-
-          <button class="button-oferta" type="button" name="button">Buy NOW</button>
+          
 
         </div>
         <div class="container-buttons col-6">

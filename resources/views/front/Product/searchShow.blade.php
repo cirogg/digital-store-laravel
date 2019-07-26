@@ -17,7 +17,7 @@
 @forelse ($productsFound as $productFound)
     
         <div class="card">
-        <img class="card-img-top "src="/storage/products/{{ $productFound->image }}" alt="imagen producto">
+        <img class="card-img-top product-cart"src="/storage/products/{{ $productFound->image }}" alt="imagen producto">
           <div class="card-body">
             <h5> {{ $productFound->name  }} </h5>
             <p class="card-text">{{ $productFound->description }}</p>
@@ -34,8 +34,20 @@
                     </form>
 
                     <form class="m-auto" action="/products/{{ $productFound->id }}" method="get">
-                      <button class="btn btn-primary" type="submit">VER MÁS</button>
-                  </form>
+                        <button class="btn btn-primary" type="submit">VER MÁS</button>
+                    </form>
+
+                    @if (Auth::user())
+                    <form action="/cart" method="post">
+                        @csrf
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
+                        <input type="hidden" name="product_id" value="{{$productFound->id}}">
+                        <button class="button-cart btn btn-warning" type="submit"><i class="fas fa-cart-plus"></i></button>
+                    </form>
+                        
+                    @else
+                      <a href="/login"><i class="fas fa-cart-plus"></i></a>
+                    @endif
             </div>
           </div>
         </div>
