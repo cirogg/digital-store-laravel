@@ -108,13 +108,13 @@
 
                             <div class="col-md-6">
                                 <input type="file" class="form-control-file @error('avatar') is-invalid @enderror" name="avatar" autofocus id="avatar">
-                                
+
                                 @error('avatar')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                 @enderror
-                            </div>    
+                            </div>
                         </div>
 
                         <div class="form-group row mb-0">

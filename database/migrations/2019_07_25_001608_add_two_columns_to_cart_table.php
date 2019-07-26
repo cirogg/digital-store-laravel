@@ -13,7 +13,7 @@ class AddTwoColumnsToCartTable extends Migration
      */
     public function up()
     {
-        Schema::table('cart', function (Blueprint $table) {
+        Schema::table('carts', function (Blueprint $table) {
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('product_id')->nullable();
@@ -28,7 +28,7 @@ class AddTwoColumnsToCartTable extends Migration
      */
     public function down()
     {
-        Schema::table('cart', function (Blueprint $table) {
+        Schema::table('carts', function (Blueprint $table) {
             $table->dropForeign('product_id');
             $table->dropColumn('product_id');
             $table->dropForeign('user_id');
