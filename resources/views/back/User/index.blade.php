@@ -19,8 +19,8 @@
 
 <div class="text-center">
     <form class="form-inline mb-3" action="/users/search">
-        <input name="search-user" class="form-control mr-sm-2 @error('search-user') is-invalid @enderror" type="search-user" placeholder="Buscar usuario por mail" aria-label="Search">
-        @error('search-user')
+        <input name="search" class="form-control mr-sm-2 @error('search-user') is-invalid @enderror" type="search" placeholder="Buscar usuario por mail" aria-label="Search">
+        @error('search')
         <span class="invalid-tooltip">
             {{$message}}
         </span>
@@ -28,8 +28,6 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
     </form>
 </div>
-
-
 
 
     <ul class="list-unstyled row">
