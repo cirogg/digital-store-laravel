@@ -6,35 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Digital Store</title>
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/styles.css">  
+    <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
 
     <header>
 
         @include('front.navbar')
-           
+
     </header>
 
         <div class="banner shadow">
 
                 <div class="slogan">
-              
+
                   <h2>Un <span class="orange">deseo</span>. Un <span class="orange">click</span>.<br> Nunca antes fue tan <span class="orange">fácil</span>.</h2>
-              
+
                 </div>
-              
+
                 <nav class="sociales">
-                  <a href="#"><img src="/storage/images/facebook.png" alt="icono facebook"></a>
-                  <a href="#"><img src="/storage/images/instagram.png" alt="icono instagram"></a>
-                  <a href="#"><img src="/storage/images/twitter.png" alt="icono twitter"></a>
+                  <a href="#"><img src="/webimages/facebook.png" alt="icono facebook"></a>
+                  <a href="#"><img src="/webimages/instagram.png" alt="icono instagram"></a>
+                  <a href="#"><img src="/webimages/twitter.png" alt="icono twitter"></a>
                 </nav>
-              
+
               </div>
-              
+
 
         <main>
-                
+
                 <nav class="products-nav container">
                   <ul>
                     <li><a href="#"><i class="fas fa-mobile-alt"></i>Celulares</a></li>
@@ -45,13 +45,13 @@
                     <li><a href="#"><i class="fas fa-plus"></i>Otras Categorías</a></li>
                   </ul>
                 </nav>
-            
+
                 <!-- Carousel  -->
-            
-            
+
+
                     <div class="row no-gutters">
                       <div class="container-oferta col-12 col-lg-12 col-md-12">
-            
+
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                           <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -60,20 +60,20 @@
                           </ol>
                           <div class="carousel-inner">
                             <div class="carousel-item active">
-                              <img class="d-block w-100" src="/storage/images/summer-tech-wide.jpg" alt="First slide">
+                              <img class="d-block w-100" src="/webimages/summer-tech-wide.jpg" alt="First slide">
                               <div class="carousel-caption d-md-block">
                                 <h5>SUMMER SALE</h5>
                                 <p>Descuentos de verano!</p>
                               </div>
                             </div>
                             <div class="carousel-item">
-                              <img class="d-block w-100" src="/storage/images/outlet-tech-small-wide.jpg" alt="Second slide">
+                              <img class="d-block w-100" src="/webimages/outlet-tech-small-wide.jpg" alt="Second slide">
                               <div class="carousel-caption d-md-block">
                                 <h5>OUTLET</h5>
                               </div>
                             </div>
                             <div class="carousel-item">
-                              <img class="d-block w-100" src="/storage/images/sales-img-small-wide.jpg" alt="Third slide">
+                              <img class="d-block w-100" src="/webimages/sales-img-small-wide.jpg" alt="Third slide">
                               <div class="carousel-caption d-md-block">
                                 <h5>SUMMER SALE</h5>
                                 <p>Descuentos de verano!</p>
@@ -89,13 +89,13 @@
                             <span class="sr-only">Next</span>
                           </a>
                        </div>
-            
+
                       </div>
-            
+
                     </div>
-            
+
                     <section class="section-ofertas">
-            
+
                       <div class="row no-gutters" id="container-oferta">
                         <div class="container-oferta col-12 col-lg-8 col-md-8 col-sm-12">
                           <div class="oferta1">
@@ -104,7 +104,7 @@
                             <button class="button-oferta" type="button" name="button">SHOP NOW</button>
                           </div>
                         </div>
-            
+
                         <div class="container-oferta col-12 col-lg-4 col-md-4 col-sm-12">
                           <div class="oferta2">
                             <h3>40% SALE</h3>
@@ -113,10 +113,10 @@
                           </div>
                         </div>
                       </div>
-            
+
                     </section>
                     <!-- Fin SECTION OFERTAS -->
-            
+
                     <section class="section-articulos container" id="section-articulos">
                       <h2>Productos destacados</h2>
                       <div class="row no-gutters">
@@ -128,7 +128,7 @@
                             <a href="detalle.php" class="button-buy-now">Shop Now!</a>
                           </article>
                         </div>
-            
+
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                           <article class="articulo">
                             <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
@@ -137,7 +137,7 @@
                             <a href="detalle.php" class="button-buy-now">Shop Now!</a>
                           </article>
                         </div>
-            
+
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                           <article class="articulo">
                             <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
@@ -146,7 +146,7 @@
                             <a href="detalle.php" class="button-buy-now">Shop Now!</a>
                           </article>
                         </div>
-            
+
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                           <article class="articulo">
                             <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
@@ -155,7 +155,7 @@
                             <a href="detalle.php" class="button-buy-now">Shop Now!</a>
                           </article>
                         </div>
-            
+
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                           <article class="articulo">
                             <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
@@ -164,7 +164,7 @@
                             <a href="detalle.php" class="button-buy-now">Shop Now!</a>
                           </article>
                         </div>
-            
+
                         <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                           <article class="articulo">
                             <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
@@ -176,7 +176,7 @@
                       </div>
                     </section>
                     <!-- FIN SECTION ARTICULOS -->
-            
+
               </main>
 
 

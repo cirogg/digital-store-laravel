@@ -23,11 +23,17 @@
 
                         </div>
                     </li>
-
+                @auth
                 <li class="nav-item active">
-                    <a class="nav-link" href="">Carrito</a>
+                <a class="nav-link" href="/cart/{{Auth::user()->id}}">Carrito</a>
                 </li>
+                @else
+                <li class="nav-item active">
+                    <a class="nav-link" href="/login">Carrito</a>
+                </li>
+                @endauth
             </ul>
+
 
             <form class="form-inline" action="/products/search">
                     <input name="search" class="form-control mr-sm-2 @error('search') is-invalid @enderror" type="search" placeholder="Buscar..." aria-label="Search">

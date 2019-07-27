@@ -8,14 +8,14 @@
 
 @if ($countItem)
 <h3>Se encontraron: <b>{{ $countItem }}</b> productos</h3>
-    
+
 @endif
 {{-- {{dd($productsFound)}} --}}
 
 
 <div class="card-columns">
 @forelse ($productsFound as $productFound)
-    
+
         <div class="card">
         <img class="card-img-top product-cart"src="/storage/products/{{ $productFound->image }}" alt="imagen producto">
           <div class="card-body">
@@ -26,7 +26,7 @@
                     <form class="m-auto" action="/products/{{ $productFound->id }}/edit" method="get">
                         <button class="btn btn-success" type="submit">EDITAR</button>
                     </form>
-                    
+
                     <form  class="m-auto" action="/products/{{ $productFound->id }}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
@@ -37,31 +37,31 @@
                         <button class="btn btn-primary" type="submit">VER MÁS</button>
                     </form>
 
-                    @if (Auth::user())
+                    @auth
                     <form action="/cart" method="post">
                         @csrf
                         <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                         <input type="hidden" name="product_id" value="{{$productFound->id}}">
                         <button class="button-cart btn btn-warning" type="submit"><i class="fas fa-cart-plus"></i></button>
                     </form>
-                        
+
                     @else
-                      <a href="/login"><i class="fas fa-cart-plus"></i></a>
-                    @endif
+                      <a href="/login"><i class="fas fa-cart-plus button-cart btn btn-warning"></i></a>
+                    @endauth
             </div>
           </div>
         </div>
-@empty 
+@empty
 
 <h2>No se encontraron resultados.</h2>
 
 @endforelse
 
-</div> 
+</div>
 
     {{$productsFound->appends(request()->query())->links()}}
 
 
 
-    
+
 @endsection

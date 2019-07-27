@@ -15,7 +15,7 @@ class CartsController extends Controller
      */
     public function index()
     {
-        
+
     }
 
     /**
@@ -35,7 +35,7 @@ class CartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
+    {
         $userId = $request->input('user_id');
         $productId = $request->input('product_id');
 
@@ -55,15 +55,37 @@ class CartsController extends Controller
      */
     public function show($id)
     {
-        $productsId = Cart::select('product_id')->where('user_id', $id)->get();
+        $cart = Cart::select('product_id')->where('user_id', $id)->get();
 
-        $productsFound = Product::find($productsId);
+        $array_products_id = [];
+        foreach ($cart as $oneCart) {
+           $test = $oneCart->product_id;
+           $array_products_id[] = $test;
 
-        $totalPrice = Product::find($productsId)->where('is_paid', 0)->sum('price');
+        }
+
+        //dd($array_products_id)
+
+        $array_products_found = [];
+        //$totalprice = 0;
+
+        foreach ($array_products_id as $oneProduct_id) {
+            $array_products_found[] = Product::find($oneProduct_id);
+        }
+
+        //dd($array_products_found);
+        $totalPrice = 0;
+        foreach ($array_products_found as $product_f) {
+            $totalPrice = $totalPrice + $product_f->price;
+        }
+        //dd($totalPrice);
+
+        //$totalPrice = Product::find($productsId)->where('is_paid', 0)->sum('price');
+        //$totalPrice = 100;
 
         //dd($productsFound);
 
-        return view('front.Cart.show', compact('productsFound', 'totalPrice'));
+        return view('front.Cart.show', compact('array_products_found', 'totalPrice'));
     }
 
     /**
@@ -96,10 +118,10 @@ class CartsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id, $productId)
-    {   
-        $productFromCart = Cart::where([ ['user_id', $id], ['product_id', $productId] ])->delete();
+    {
+        $productFromCart = Cart::where([ ['user_id', $id], ['product_id', $productId] ])->first()->delete();
         //dd($productFromCart);
-        
+
         return redirect('/cart/'. $id);
     }
 }

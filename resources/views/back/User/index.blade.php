@@ -18,10 +18,10 @@
 @endif
 
 <div class="text-center">
-    <form class="form-inline mb-3" action="/users/search">
-        <input name="search" class="form-control mr-sm-2 @error('search-user') is-invalid @enderror" type="search" placeholder="Buscar usuario por mail" aria-label="Search">
-        @error('search')
-        <span class="invalid-tooltip">
+    <form class="form-inline mb-5 position-relative" action="/users/search">
+        <input name="search-email" class="form-control mr-sm-2 @error('search-email') is-invalid @enderror" placeholder="Buscar usuario por mail" aria-label="Search">
+        @error('search-email')
+        <span class="invalid-tooltip mt-2">
             {{$message}}
         </span>
         @enderror

@@ -81,18 +81,18 @@ class UsersController extends Controller
 
     public function searchByEmail(Request $request)
     {
-        $item = $request->input('search');
+        $item = $request->input('search-email');
 
         $request->validate([
-            'search' => 'required'
+            'search-email' => 'required'
         ],
         [
-            'search.required' => 'Ingresa el mail que deseas encontrar'
+            'search-email.required' => 'Ingresa el mail que deseas encontrar'
         ]);
 
-        $email = $request->search;
+        //$email = $request;
 
-        $userFound = User::where('email', 'LIKE', $email)->paginate(1);
+        $userFound = User::where('email', 'LIKE', $item)->get();
 
         return view('back.User.profile', compact('userFound', 'item') );
     }
