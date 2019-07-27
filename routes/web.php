@@ -27,7 +27,7 @@ Route::get('/faq', function () {
 
 // Si no esta logueado, redirecciona al Login
 Route::middleware('auth')->group(function ()
-{	
+{
 	//Products
 	Route::get('/products/create', 'ProductsController@create');
 	Route::delete('/products/{id}', 'ProductsController@destroy');
@@ -47,6 +47,8 @@ Route::delete('/products/{id}', 'ProductsController@destroy');
 //Rutas User
 Route::get('/users/search', 'UsersController@searchByEmail');
 Route::resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
+Route::get('/users/edit/{id}', 'UsersController@edit');
+Route::post('/users/{id}', 'UsersController@show');
 
 Auth::routes();
 

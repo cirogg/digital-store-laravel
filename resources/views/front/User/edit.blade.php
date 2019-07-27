@@ -1,131 +1,143 @@
-@extends('front.template')
+@extends('layouts.app')
 
-@section('pageTitle', 'Editar Producto')
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                {{-- <div class="card-header">{{ __('Register') }}</div> --}}
+                <div class="card-header">{{ __('Edit') }}</div>
 
-@section('mainContent')
-    <h2>Formulario para editar producto</h2>
+                <div class="card-body">
+                    <form method="POST" action="/users/{{$userFound->id}}" enctype="multipart/form-data">
+                        {{ method_field('PUT') }}
+                        @csrf
 
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ $userFound->name }}" autocomplete="name" autofocus>
 
-    <form action="/products/{{ $productEdit->id }}" method="post" enctype="multipart/form-data">
-        {{ method_field('PUT') }}
-        @csrf
+                                @error('name')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
-        
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label>Nombre del producto</label>
-                    <input
-                    type="text"
-                    name="name"
-                    value="{{$errors->has('name') ? null : old('name', $productEdit->name)}}"
-                    class="form-control @error('name') is-invalid @enderror"
-                    >
-                    @error('name')
-                    <span class="text-danger invalid-feedback">
-                        {{$message}}
-                    </span>
-                    @enderror
+                        <div class="form-group row">
+                            <label for="surname" class="col-md-4 col-form-label text-md-right">Apellido</label>
+
+                            <div class="col-md-6">
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ $userFound->surname }}" autocomplete="surname" autofocus>
+
+                                @error('surname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="nickname" class="col-md-4 col-form-label text-md-right">Nombre de Usuario</label>
+
+                            <div class="col-md-6">
+                                <input id="nickname" type="text" class="form-control @error('nickname') is-invalid @enderror" name="nickname" value="{{ $userFound->nickname }}" autocomplete="nickname" autofocus>
+
+                                @error('nickname')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $userFound->email }}" autocomplete="email">
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+                                <small id="passwordHelp" class="form-text text-muted">Su contraseña debe incluir "DH".</small>
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('País') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ $userFound->country }}" autocomplete="country" autofocus>
+
+                                @error('country')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">Imágen Perfil</label>
+
+                            <div class="col-md-6">
+                                <input type="file" class="form-control-file @error('avatar') is-invalid @enderror" name="avatar" autofocus id="avatar">
+
+                                @error('avatar')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="avatar-img" class="col-md-4 col-form-label text-md-right">Imágen Perfil</label>
+
+                            <div class="col-md-6">
+                            <img class="img-thumbnail" src="/storage/avatars/{{$userFound->avatar}}" alt="">
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    {{ __('Edit') }}
+                                </button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label>Precio</label>
-                    <input
-                    type="text"
-                    name="price"
-                    value="{{$errors->has('price') ? null : old('price', $productEdit->price)}}"
-                    class="form-control @error('price') is-invalid @enderror"
-                    >
-                    @error('price')
-                    <span class="text-danger invalid-feedback">
-                        {{$message}}
-                    </span>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label>Descripción</label>
-                    <input
-                    type="text"
-                    name="description"
-                    value="{{$errors->has('description') ? null : old('description', $productEdit->description)}}"
-                    class="form-control @error('description') is-invalid @enderror"
-                    >
-                    @error('description')
-                    <span class="text-danger invalid-feedback">
-                        {{$message}}
-                    </span>
-                    @enderror
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label>Categoría</label>
-                    <select class="form-control @error('category_id') is-invalid @enderror" name="category_id">
-                            <option value="">-- Seleccionar Categoría del producto --</option>
-                        @foreach ($categories as $category)
-                            <option 
-                                @if ($productEdit->category_id == $category->id)
-                                    selected
-                                @endif
-                                value="{{ $category->id }}">{{ $category->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @if ($errors->has('category_id'))
-                        <span class="text-danger invalid-feedback">
-                            {{ $errors->first('category_id') }}
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label>Marca</label>
-                    <select class="form-control @error('brand_id') is-invalid @enderror" name="brand_id">
-                        <option value="">-- Seleccionar Marca del producto --</option>
-                        @foreach ($brands as $brand)
-                            <option 
-                                @if ($productEdit->brand_id == $brand->id)
-                                    selected
-                                @endif
-                                value="{{ $brand->id }}">{{ $brand->name }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @if ($errors->has('brand_id'))
-                        <span class="text-danger invalid-feedback">
-                            {{ $errors->first('brand_id') }}
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="form-group">
-                    <label>Subí una imágen</label>
-                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror">
-                    @if ($errors->has('image'))
-                        <span class="text-danger invalid-feedback">
-                            {{ $errors->first('image') }}
-                        </span>
-                    @endif
-                </div>
-            </div>
-
-            <div class="col-12 text-right">
-                <button type="submit" class="btn btn-success">EDITAR PRODUCTO</button>
-            </div>
-
         </div>
-
-     </form>
-
+    </div>
+</div>
 @endsection

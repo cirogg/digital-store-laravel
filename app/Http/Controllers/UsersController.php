@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -39,7 +40,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**
@@ -51,8 +52,9 @@ class UsersController extends Controller
     public function show($id)
     {
         $userFound = User::findOrFail($id);
+        return view('front.User.show', compact('userFound'));
 
-        return view('front.User.show', compact($userFound));
+
     }
 
     /**
@@ -63,7 +65,14 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        $userFound = User::findOrFail($id);
+
+        if ($id == Auth::user()->id or Auth::user()->admin == 1) {
+            return view('front.User.edit', compact('userFound'));
+        }else {
+            return redirect('/');
+        }
+
     }
 
     /**
@@ -75,7 +84,32 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $userUpdate = new User();
+
+        $userUpdate->name = $request->input('name');
+        $userUpdate->surname = $request->input('surname');
+        $userUpdate->nickname = $request->input('nickname');
+        $userUpdate->email = $request->input('email');
+        $userUpdate->country = $request->input('country');
+        $userUpdate->password = $request->input('password');
+        //$userUpdate->country = $request->input('country');
+        //$userUpdate->avatar = $request->input('avatar');
+
+
+        $imagen = $request->file('avatar');
+
+        if ($imagen) {
+            $finalImage = uniqid("img_") . "." . $imagen->extension();
+            $imagen->storePubliclyAs("public/avatars", $finalImage);
+            $userUpdate->avatar = $finalImage;
+        }
+
+
+        $userUpdate->save();
+
+
+
+        return redirect('/user/$id'); //Esto hay que redireccionarlo a otro lado.
     }
 
 
