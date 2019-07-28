@@ -205,6 +205,6 @@ class ProductsController extends Controller
 
         $productDestroy->delete();
 
-        return redirect('/products/create');
+        return back();
     }
 }

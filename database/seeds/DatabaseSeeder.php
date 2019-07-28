@@ -28,5 +28,11 @@ class DatabaseSeeder extends Seeder
         $product->brand()->associate($brands->random(1)->first()->id);
         $product->save();
       }
+
+      foreach ($carts as $cart) {
+        $cart->user()->associate($users->random(1)->first()->id);
+        $cart->product()->associate($products->random(1)->first()->id);
+        $cart->save();
+      }
     }
 }

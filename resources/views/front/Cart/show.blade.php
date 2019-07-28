@@ -28,7 +28,8 @@
 
 @empty
     <div class="alert alert-warning text-center" role="alert">
-            Tu carrito está vacío!
+            <p>Tu carrito está vacío!</p>
+            <a class="btn btn-lg btn-success" href="/products">IR DE COMPRAS</a>
     </div>
 @endforelse
 

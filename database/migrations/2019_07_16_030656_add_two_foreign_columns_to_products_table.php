@@ -15,9 +15,9 @@ class AddTwoForeignColumnsToProductsTable extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->unsignedBigInteger('brand_id')->nullable();
-            $table->foreign('brand_id')->references('id')->on('categories');
+            $table->foreign('brand_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
 

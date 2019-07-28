@@ -44,7 +44,8 @@ class CartsController extends Controller
             'product_id' => $productId
         ]);
 
-        return redirect("/cart/$userId");
+        //return redirect("/cart/$userId");
+        return back();
     }
 
     /**

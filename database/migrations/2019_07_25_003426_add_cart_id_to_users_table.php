@@ -15,7 +15,7 @@ class AddCartIdToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->unsignedBigInteger('cart_id')->nullable();
-            $table->foreign('cart_id')->references('id')->on('carts');
+            $table->foreign('cart_id')->references('id')->on('carts')->onDelete('cascade');
         });
     }
 
