@@ -84,32 +84,61 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $userUpdate = new User();
 
-        $userUpdate->name = $request->input('name');
-        $userUpdate->surname = $request->input('surname');
-        $userUpdate->nickname = $request->input('nickname');
-        $userUpdate->email = $request->input('email');
-        $userUpdate->country = $request->input('country');
-        $userUpdate->password = $request->input('password');
+        $request->validate([
+
+          'name' => ['required', 'string', 'max:255'],
+          'surname' => ['required', 'string', 'max:255'],
+          'country' => ['required', 'string', 'max:255'],
+          'nickname' => ['required', 'string', 'max:255'],
+          'email' => ['required', 'string', 'email', 'max:255'],
+          'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/DH/'],
+          'avatar' => ['required', 'image']
+      ]);
+
+      $user = Auth::user();
+
+      $user->nickname = $request->input('nickname');
+      $user->email = $request->input('email');
+      $user->surname = $request->input('surname');
+      $user->country = $request->input('country');
+      $user->name = $request->input('name');
+
+      $imagen = $request->file('avatar');
+
+      if ($imagen) {
+        $finalImage = uniqid("img_") . "." . $imagen->extension();
+        $imagen->storePubliclyAs("public/avatars", $finalImage);
+        $user->avatar = $finalImage;
+      }
+
+      if ( ! $request->input('password') == '')
+      {
+        $user->password = bcrypt($request->input('password'));
+      }
+
+      $user->save();
+
+
+      // $userUpdate = new User();
+
+        // $userUpdate->name = $request->input('name');
+        // $userUpdate->surname = $request->input('surname');
+        // $userUpdate->nickname = $request->input('nickname');
+        // $userUpdate->email = $request->input('email');
+        // $userUpdate->country = $request->input('country');
+        // $userUpdate->password = $request->input('password');
         //$userUpdate->country = $request->input('country');
         //$userUpdate->avatar = $request->input('avatar');
 
 
-        $imagen = $request->file('avatar');
-
-        if ($imagen) {
-            $finalImage = uniqid("img_") . "." . $imagen->extension();
-            $imagen->storePubliclyAs("public/avatars", $finalImage);
-            $userUpdate->avatar = $finalImage;
-        }
-
-
-        $userUpdate->save();
+        //
+        //
+        // $userUpdate->save();
 
 
 
-        return redirect('/user/$id'); //Esto hay que redireccionarlo a otro lado.
+        return redirect("/users/$id"); //Esto hay que redireccionarlo a otro lado.
     }
 
 

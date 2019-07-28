@@ -75,8 +75,8 @@ class ProductsController extends Controller
 		], [
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
-			'required' => 'El campo :attribute es obligatorio',
-			'numeric' => 'El campo :attribute debe ser numérico',
+			      'required' => 'El campo :attribute es obligatorio',
+			      'numeric' => 'El campo :attribute debe ser numérico',
             'category_id.required' => 'Debes seleccionar una categoría',
             'brand_id.required' => 'Debes seleccionar una marca',
             'image.required' => 'Selecciona una imagen descriptiva del producto',
@@ -160,8 +160,8 @@ class ProductsController extends Controller
 		], [
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
-			'required' => 'El campo :attribute es obligatorio',
-			'numeric' => 'El campo :attribute debe ser numérico',
+			      'required' => 'El campo :attribute es obligatorio',
+			      'numeric' => 'El campo :attribute debe ser numérico',
             'category_id.required' => 'Debes seleccionar una categoría',
             'brand_id.required' => 'Debes seleccionar una marca',
             'image.image' => 'Formato de imágen no válido',
