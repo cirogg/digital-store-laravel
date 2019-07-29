@@ -26,7 +26,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.Category.create');
     }
 
     /**
@@ -37,7 +37,20 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'icon' => 'required' 
+        ], 
+        [
+            'icon.required' => 'Debes elegir un icono de Fontawsome'
+        ]);
+
+        Category::create([
+            'name' => $request->input('name'),
+            'icon' => $request->input('icon')
+        ]);
+
+        return redirect('/categorias');
     }
 
     /**

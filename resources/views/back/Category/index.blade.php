@@ -6,7 +6,7 @@
     <h1 class="text-center mt-3">Listado de categorías</h1>
 
     <div class="text-right">
-        <a class="btn btn-warning" href="/products/create"><i class="fas fa-plus"></i>  Crear nueva categoría</a>
+        <a class="btn btn-warning" href="/categorias/create"><i class="fas fa-plus"></i>  Crear nueva categoría</a>
     </div>
 
     <ul>

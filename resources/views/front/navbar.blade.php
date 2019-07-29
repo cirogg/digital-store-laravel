@@ -45,7 +45,9 @@
                     <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
             </form>
             <!-- Right Side Of Navbar -->
+            
             <ul class="navbar-nav ml-auto">
+                    <a class="btn btn-info mr-2" href="/admin">Panel de Control</a>
                 <!-- Authentication Links -->
                 @guest
 

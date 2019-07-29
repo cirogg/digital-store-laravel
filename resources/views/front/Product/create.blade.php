@@ -4,7 +4,7 @@
 
 @section('mainContent')
 
-    <h2>Formulario para crear producto</h2>
+    <h2 class="text-center mt-3 mb-3">Formulario para crear producto</h2>
    {{-- @if (count($errors))
         <ul>
             @foreach ($errors->all() as $error)

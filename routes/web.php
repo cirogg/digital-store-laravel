@@ -22,6 +22,11 @@ Route::get('/faq', function () {
     return view('front.faq');
 });
 
+//Admin-control
+Route::get('/admin', function(){
+	return view('back.admin');
+});
+
 // Route::get('/products/create' , 'ProductsController@create');
 // Route::get('/products/{id}/edit', 'ProductsController@edit');
 
@@ -32,6 +37,7 @@ Route::middleware('auth')->group(function ()
 	Route::get('/products/create', 'ProductsController@create');
 	Route::delete('/products/{id}', 'ProductsController@destroy');
 	Route::get('/products/{id}/edit', 'ProductsController@edit');
+	Route::get('/products', 'ProductsController@index');
 	//Cart
 	Route::get('/cart/{id}', 'CartsController@show');
 	Route::delete('/cart/{id}/{productId}', 'CartsController@destroy');
@@ -55,6 +61,10 @@ Route::get('/categorias', 'CategoriesController@index');
 Route::get('/categorias/{id}/edit', 'CategoriesController@edit');
 Route::put('/categorias/{id}', 'CategoriesController@update');
 Route::delete('/categorias/{id}', 'CategoriesController@destroy');
+Route::get('/categorias/create', 'CategoriesController@create');
+Route::post('/categorias', 'CategoriesController@store');
+
+
 
 Auth::routes();
 

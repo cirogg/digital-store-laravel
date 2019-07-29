@@ -15,7 +15,11 @@ class ProductsController extends Controller
      */
     public function index()
     {
+        $productsFound = Product::paginate(20);
 
+        $countProducts = count(Product::all());
+
+        return view('back.Product.index', compact('productsFound', 'countProducts'));
     }
 
     //Metodo para Search del Navbar
