@@ -37,7 +37,10 @@
 
                 <nav class="products-nav container">
                   <ul>
-                    <li><a href="#"><i class="fas fa-mobile-alt"></i>Celulares</a></li>
+                    {{-- @foreach ($categories as $category)
+                        
+                    <li><a href="#"><i class="{{$category->icon}}"></i>{{$category->name}}</a></li>
+                    @endforeach --}}
                     <li><a href="#"><i class="fas fa-laptop"></i>Notebooks</a></li>
                     <li><a href="#"><i class="fas fa-tv"></i>TVs y Monitores</a></li>
                     <li><a href="#"><i class="fas fa-tablet-alt"></i>Tablets</a></li>

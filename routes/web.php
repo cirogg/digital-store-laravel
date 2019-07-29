@@ -50,6 +50,12 @@ Route::resource('/users', 'UsersController')->except(['create', 'destroy', 'edit
 Route::get('/users/edit/{id}', 'UsersController@edit');
 Route::post('/users/{id}', 'UsersController@show');
 
+//Category
+Route::get('/categorias', 'CategoriesController@index');
+Route::get('/categorias/{id}/edit', 'CategoriesController@edit');
+Route::put('/categorias/{id}', 'CategoriesController@update');
+Route::delete('/categorias/{id}', 'CategoriesController@destroy');
+
 Auth::routes();
 
 
