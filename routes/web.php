@@ -51,18 +51,22 @@ Route::resource('/products', 'ProductsController')->except(['create', 'destroy',
 Route::delete('/products/{id}', 'ProductsController@destroy');
 
 //Rutas User
-Route::get('/users/search', 'UsersController@searchByEmail');
-Route::resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
-Route::get('/users/edit/{id}', 'UsersController@edit');
+Route::middleware('auth')->get('/users/search', 'UsersController@searchByEmail');
+Route::middleware('auth')->resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
+Route::middleware('auth')->get('/users/edit/{id}', 'UsersController@edit');
 Route::post('/users/{id}', 'UsersController@show');
 
 //Category
+
+Route::middleware('auth')->group(function ()
+{
 Route::get('/categorias', 'CategoriesController@index');
 Route::get('/categorias/{id}/edit', 'CategoriesController@edit');
 Route::put('/categorias/{id}', 'CategoriesController@update');
 Route::delete('/categorias/{id}', 'CategoriesController@destroy');
 Route::get('/categorias/create', 'CategoriesController@create');
 Route::post('/categorias', 'CategoriesController@store');
+});
 
 
 

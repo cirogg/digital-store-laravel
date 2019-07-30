@@ -93,7 +93,7 @@ class UsersController extends Controller
           'nickname' => ['required', 'string', 'max:255'],
         //   'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
           'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/DH/'],
-          'avatar' => ['required', 'image']
+          // 'avatar' => ['required', 'image']
       ]);
 
       $user = Auth::user();
@@ -103,6 +103,18 @@ class UsersController extends Controller
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             ]);
             }
+
+            if ($user->nickname != $request->input('nickname')){
+            $request->validate([
+                'nickname' => ['required', 'string', 'max:255', 'unique:users'],
+            ]);
+            }
+
+            // if ($user->avatar = $request->input('avatar')){
+            // $request->validate([
+            //     'avatar' => ['required', 'image'],
+            // ]);
+            // }
 
 
       $user->nickname = $request->input('nickname');

@@ -6,7 +6,7 @@
             <li><a href="/faq"><i class="fas fa-question"></i> Preguntas Frecuentes</li></a>
           </ul>
         </nav>
-      
+
         <p> &copy; Todos los derechos reservados</p>
-      
+
 </footer>

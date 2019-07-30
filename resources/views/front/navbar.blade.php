@@ -45,9 +45,16 @@
                     <button class="btn btn-outline-info my-2 my-sm-0" type="submit">Buscar</button>
             </form>
             <!-- Right Side Of Navbar -->
-            
-            <ul class="navbar-nav ml-auto">
+              <ul class="navbar-nav ml-auto">
+            @guest
+                <a class="btn btn-info mr-2 invisible" href="/admin">Panel de Control</a>
+            @else
+                @if(Auth::user()->admin == 1)
                     <a class="btn btn-info mr-2" href="/admin">Panel de Control</a>
+                @endif
+            @endguest
+
+
                 <!-- Authentication Links -->
                 @guest
 
