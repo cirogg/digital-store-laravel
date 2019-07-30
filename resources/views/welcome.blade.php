@@ -38,7 +38,7 @@
                 <nav class="products-nav container">
                   <ul>
                     {{-- @foreach ($categories as $category)
-                        
+
                     <li><a href="#"><i class="{{$category->icon}}"></i>{{$category->name}}</a></li>
                     @endforeach --}}
                     <li><a href="#"><i class="fas fa-laptop"></i>Notebooks</a></li>

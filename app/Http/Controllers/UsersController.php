@@ -91,12 +91,19 @@ class UsersController extends Controller
           'surname' => ['required', 'string', 'max:255'],
           'country' => ['required', 'string', 'max:255'],
           'nickname' => ['required', 'string', 'max:255'],
-          'email' => ['required', 'string', 'email', 'max:255'],
+        //   'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
           'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/DH/'],
           'avatar' => ['required', 'image']
       ]);
 
       $user = Auth::user();
+
+            if ($user->email != $request->input('email')){
+            $request->validate([
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+            }
+
 
       $user->nickname = $request->input('nickname');
       $user->email = $request->input('email');
