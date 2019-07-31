@@ -45,7 +45,7 @@ Route::resource('/products', 'ProductsController')->except(['create', 'destroy',
 
 //Rutas User
 Route::middleware('auth')->get('/users/edit/{id}', 'UsersController@edit');
-Route::post('/users/{id}', 'UsersController@show');
+Route::get('/users/{id}', 'UsersController@show');
 
 
 Route::middleware('admin')->group(function ()
@@ -62,7 +62,6 @@ Route::middleware('admin')->group(function ()
 		return view('back.admin');
 	});
 
-	Route::delete('/products/{id}', 'ProductsController@destroy');
 	//CATEGORIES --- TODAS ADMIN
 	Route::get('/categorias', 'CategoriesController@index');
 	Route::get('/categorias/{id}/edit', 'CategoriesController@edit');

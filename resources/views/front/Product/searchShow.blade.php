@@ -23,51 +23,56 @@
             <p class="card-text">{{ $productFound->description }}</p>
             <p class="card-text">Precio: ${{ $productFound->price  }}</p>
             <div class="form-inline ">
-                    <form class="m-auto" action="/products/{{ $productFound->id }}/edit" method="get">
-                        <button class="btn btn-success" type="submit">EDITAR</button>
-                    </form>
-
-                    {{-- MODAL BOOTSTRAP PARA ELIMINAR --}}
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$productFound->id}}">
-                      ELIMINAR
-                    </button>
-
-                    <!-- Modal -->
-                    <div class="modal fade" id="exampleModal{{$productFound->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">¡ATENCIÓN!</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                            Estás por eliminar un producto definitivamente.
-                            <b>¿Estás Seguro?</b>
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                            <form  action="/products/{{ $productFound->id }}" method="post">
-                              @csrf
-                              {{ method_field('DELETE') }}
-                              <button class="btn btn-danger" type="submit">Eliminar</button>
-                          </form>
+              @auth
+                 @if (AUth::user()->admin == 1)
+                     
+                  <form class="m-auto" action="/products/{{ $productFound->id }}/edit" method="get">
+                    <button class="btn btn-success" type="submit">EDITAR</button>
+                  </form>
+                  
+                  {{-- MODAL BOOTSTRAP PARA ELIMINAR --}}
+                  <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$productFound->id}}">
+                            ELIMINAR
+                        </button>
+                        
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal{{$productFound->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                              <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">¡ATENCIÓN!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                Estás por eliminar un producto definitivamente.
+                                <b>¿Estás Seguro?</b>
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+                                <form  action="/products/{{ $productFound->id }}" method="post">
+                                  @csrf
+                                  {{ method_field('DELETE') }}
+                                  <button class="btn btn-danger" type="submit">Eliminar</button>
+                                </form>
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </div>
-
+                      @endif   
+                      
+                    @endauth
                     
 
                     <form class="m-auto" action="/products/{{ $productFound->id }}" method="get">
                         <button class="btn btn-primary" type="submit">VER MÁS</button>
                     </form>
-
+                    
                     @auth
                     <form action="/cart" method="post">
-                        @csrf
+                      @csrf
                         <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                         <input type="hidden" name="product_id" value="{{$productFound->id}}">
                         <button class="button-cart btn btn-warning" type="submit"><i class="fas fa-cart-plus"></i></button>

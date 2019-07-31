@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 {{-- <div class="card-header">{{ __('Register') }}</div> --}}
-                <div class="card-header">{{ __('Edit') }}</div>
+                <div class="card-header">¡Bienvenid@ {{$userFound->name}}!</div>
 
                 <div class="card-body">
                     <form method="POST" action="/users/{{$userFound->id}}" enctype="multipart/form-data">
@@ -130,7 +130,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Edit') }}
+                                    Editar Perfil
                                 </button>
                             </div>
                         </div>
