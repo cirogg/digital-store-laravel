@@ -19,7 +19,7 @@ class DatabaseSeeder extends Seeder
     {
       $users = factory(User::class)->times(10)->create();
       $products = factory(Product::class)->times(10)->create();
-      $brands = factory(Brand::class)->times(10)->create();
+      $brands = factory(Brand::class)->times(8)->create();
       $categories = factory(Category::class)->times(10)->create();
       $carts = factory(Cart::class)->times(10)->create();
 
@@ -34,5 +34,10 @@ class DatabaseSeeder extends Seeder
         $cart->product()->associate($products->random(1)->first()->id);
         $cart->save();
       }
+
+    //   $brands= factory(Brand::class,10)->create();
+    //   $categories= factory(Category::class,10)->create();
+
+      $brands->first()->category()->sync($categories)
     }
 }
