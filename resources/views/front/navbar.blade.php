@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             DIGITAL <span class="orange ">STORE</span>
@@ -46,13 +46,12 @@
             </form>
             <!-- Right Side Of Navbar -->
               <ul class="navbar-nav ml-auto">
-            @guest
-                <a class="btn btn-info mr-2 invisible" href="/admin">Panel de Control</a>
-            @else
-                @if(Auth::user()->admin == 1)
+
+
+                @if(Auth::user() && Auth::user()->admin == 1)
                     <a class="btn btn-info mr-2" href="/admin">Panel de Control</a>
                 @endif
-            @endguest
+            
 
 
                 <!-- Authentication Links -->

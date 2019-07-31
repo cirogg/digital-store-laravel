@@ -16,7 +16,7 @@
 @forelse ($userFound as $user)
 
         <div class="card">
-        <img class="card-img-top "src="/storage/users/{{ $user->image }}" alt="imagen usuario">
+        <img class="card-img-top "src="/storage/avatars/{{ $user->avatar }}" alt="imagen usuario">
           <div class="card-body">
             <h5> {{ $user->name  }} </h5>
             <p class="card-text">{{ $user->surname }}</p>

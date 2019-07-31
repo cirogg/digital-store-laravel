@@ -157,7 +157,7 @@ class UsersController extends Controller
 
 
 
-        return redirect("/users/$id"); //Esto hay que redireccionarlo a otro lado.
+        return redirect("/users/$id"); 
     }
 
 

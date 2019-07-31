@@ -65,20 +65,20 @@
                             <div class="carousel-item active">
                               <img class="d-block w-100" src="/webimages/summer-tech-wide.jpg" alt="First slide">
                               <div class="carousel-caption d-md-block">
-                                <h5>SUMMER SALE</h5>
+                                <h3>SUMMER SALE</h3>
                                 <p>Descuentos de verano!</p>
                               </div>
                             </div>
                             <div class="carousel-item">
                               <img class="d-block w-100" src="/webimages/outlet-tech-small-wide.jpg" alt="Second slide">
                               <div class="carousel-caption d-md-block">
-                                <h5>OUTLET</h5>
+                                <h3>OUTLET</h3>
                               </div>
                             </div>
                             <div class="carousel-item">
                               <img class="d-block w-100" src="/webimages/sales-img-small-wide.jpg" alt="Third slide">
                               <div class="carousel-caption d-md-block">
-                                <h5>SUMMER SALE</h5>
+                                <h3>SUMMER SALE</h3>
                                 <p>Descuentos de verano!</p>
                               </div>
                             </div>

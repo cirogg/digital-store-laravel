@@ -37,6 +37,7 @@ Route::middleware('auth')->group(function ()
 	Route::delete('/cart/{id}/{productId}', 'CartsController@destroy');
 	Route::post('/cart', 'CartsController@store');
 });
+Route::get('/products/create', 'ProductsController@create');
 
 //Ruta para buscador de productos del Navbar
 Route::get('/products/search', 'ProductsController@searchByName');
@@ -45,13 +46,12 @@ Route::resource('/products', 'ProductsController')->except(['create', 'destroy',
 
 //Rutas User
 Route::middleware('auth')->get('/users/edit/{id}', 'UsersController@edit');
-Route::get('/users/{id}', 'UsersController@show');
+//Route::get('/users/{id}', 'UsersController@show');
 
 
 Route::middleware('admin')->group(function ()
 {
 	//Products
-	Route::get('/products/create', 'ProductsController@create');
 	Route::delete('/products/{id}', 'ProductsController@destroy');
 	Route::get('/products/{id}/edit', 'ProductsController@edit');
 	//USERS
