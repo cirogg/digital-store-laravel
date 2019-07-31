@@ -1,3 +1,16 @@
+
+
+{{-- @php
+$test = [];
+$test2 = [];
+foreach ($categories as $category) {
+    $test[] = $category->brand->toArray();
+   }
+@endphp
+
+{{dd($test)}} --}}
+
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
@@ -8,31 +21,54 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
             <!-- Left Side Of Navbar -->
 
             <ul class="navbar-nav mr-auto">
 
-                    <li class="dropdown">
-                        <a class="nav-link active bg-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Categorías
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                          @foreach ($categories as $category)
-                          <a class="dropdown-item" href="#">{{$category->name}}</a>
-                          @endforeach
+                <li class="dropdown">
+                    <a class="nav-link active bg-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Categorías
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                        </div>
+                        @foreach ($categories as $category)
+                        <a class="dropdown-item" href="#">{{$category->name}}</a>
+                        @endforeach
+                    </div>
+                    @auth
+                    <li class="nav-item active">
+                    <a class="nav-link" href="/cart/{{Auth::user()->id}}">Carrito</a>
                     </li>
-                @auth
-                <li class="nav-item active">
-                <a class="nav-link" href="/cart/{{Auth::user()->id}}">Carrito</a>
+                    @else
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/login">Carrito</a>
+                    </li>
+                    @endauth
+                    <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Dropdown
+                            </button>
+                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
+                                @foreach ($categories as $category)
+                                    <li class="dropdown-submenu">
+                                        <a class="dropdown-item" href="#">{{$category->name}}</a>
+                                        <ul class="dropdown-menu">
+                                            <li class="dropdown-submenu">
+                                                @foreach ($category->brand as $brand)
+                                                    @if ($category->brand != null)
+                                                        <a  class="dropdown-item" href="#">{{$brand->name}}</a>
+                                                    @endif
+                                                @endforeach
+
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endforeach
+                              </ul>
+                        </div>
                 </li>
-                @else
-                <li class="nav-item active">
-                    <a class="nav-link" href="/login">Carrito</a>
-                </li>
-                @endauth
-            </ul>
+             </ul>
 
 
             <form class="form-inline" action="/products/search">
