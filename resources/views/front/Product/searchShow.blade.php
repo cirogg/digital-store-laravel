@@ -4,14 +4,19 @@
 
 
 @section('mainContent')
+
+@if ($item)
+
 <h1 class="mt-3 mb-3">Resultado de la búsqueda de "{{ $item }}"</h1>
-
-@if ($countItem)
-<h3>Se encontraron: <b>{{ $countItem }}</b> productos</h3>
-
 @endif
-{{-- {{dd($productsFound)}} --}}
 
+@if ($countItem == 1)
+  <h3>Se encontró: <b>{{ $countItem }}</b> producto</h3>
+@else
+  @if ($countItem)
+  <h3>Se encontraron: <b>{{ $countItem }}</b> productos</h3>    
+  @endif
+@endif
 
 <div class="card-columns">
 @forelse ($productsFound as $productFound)

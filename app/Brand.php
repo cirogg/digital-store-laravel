@@ -13,7 +13,7 @@ class Brand extends Model
         return $this->hasMany(Product::class, 'brand_id','id');
     }
 
-    public function category()
+    public function categories()
     {
       return $this->belongsToMany(Category::class);
     }

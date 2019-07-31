@@ -211,4 +211,19 @@ class ProductsController extends Controller
 
         return back();
     }
+
+    public function filter($category_id, $brand_id = null)
+    {
+        if($brand_id){
+            $productsFound = Product::where([['category_id', $category_id], ['brand_id', $brand_id]])->paginate(9);
+        } else {
+            $productsFound = Product::where('category_id', $category_id)->paginate(9);
+        }
+        
+        $countItem = count($productsFound);
+
+        $item = null;
+
+        return view('front.Product.searchShow', compact('productsFound', 'countItem', 'item') );
+    }
 }

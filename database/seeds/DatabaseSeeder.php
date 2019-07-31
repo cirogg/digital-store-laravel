@@ -35,9 +35,8 @@ class DatabaseSeeder extends Seeder
         $cart->save();
       }
 
-    //   $brands= factory(Brand::class,10)->create();
-    //   $categories= factory(Category::class,10)->create();
-
-      $brands->first()->category()->sync($categories)
+      foreach ($brands as $brand) {
+        $brand->categories()->sync($categories->random(3));
+      }
     }
 }

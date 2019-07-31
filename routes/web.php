@@ -25,9 +25,9 @@ Route::get('/faq', function () {
 });
 
 
+
 // Route::get('/products/create' , 'ProductsController@create');
 // Route::get('/products/{id}/edit', 'ProductsController@edit');
-
 // Si no esta logueado, redirecciona al Login
 Route::middleware('auth')->group(function ()
 {
@@ -37,10 +37,15 @@ Route::middleware('auth')->group(function ()
 	Route::delete('/cart/{id}/{productId}', 'CartsController@destroy');
 	Route::post('/cart', 'CartsController@store');
 });
-Route::get('/products/create', 'ProductsController@create');
+
+Route::middleware('admin')->get('/products/create', 'ProductsController@create');
 
 //Ruta para buscador de productos del Navbar
 Route::get('/products/search', 'ProductsController@searchByName');
+//Filtro productos Dropdown navbar
+Route::get('/products/filter/{category_id}/{brand_id?}', 'ProductsController@filter');
+
+
 Route::resource('/products', 'ProductsController')->except(['create', 'destroy', 'edit']);
 //Route::post('/products/create','ProductsController@store');
 

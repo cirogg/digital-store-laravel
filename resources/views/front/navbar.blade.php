@@ -25,49 +25,38 @@ foreach ($categories as $category) {
             <!-- Left Side Of Navbar -->
 
             <ul class="navbar-nav mr-auto">
-
-                <li class="dropdown">
-                    <a class="nav-link active bg-dark dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="dropdown">
+                    <a class="nav-link active bg-dark dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categorías
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
+                    <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
                         @foreach ($categories as $category)
-                        <a class="dropdown-item" href="#">{{$category->name}}</a>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item" href="/products/filter/{{ $category->id }}">{{$category->name}}</a>
+                                <ul class="dropdown-menu">
+                                    <li class="dropdown-submenu">
+                                        @foreach ($category->brands as $brand)
+                                            @if ($category->brands != null)
+                                                <a  class="dropdown-item" href="/products/filter/{{ $category->id }}/{{$brand->id}}">{{$brand->name}}</a>
+                                            @endif
+                                        @endforeach
+                                        
+                                    </li>
+                                </ul>
+                            </li>
                         @endforeach
-                    </div>
-                    @auth
+                    </ul>
+                </div>
+
+                @auth
                     <li class="nav-item active">
-                    <a class="nav-link" href="/cart/{{Auth::user()->id}}">Carrito</a>
+                        <a class="nav-link" href="/cart/{{Auth::user()->id}}">Carrito</a>
                     </li>
-                    @else
+                @else
                     <li class="nav-item active">
                         <a class="nav-link" href="/login">Carrito</a>
                     </li>
-                    @endauth
-                    <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Dropdown
-                            </button>
-                            <ul class="dropdown-menu multi-level" role="menu" aria-labelledby="dropdownMenu">
-                                @foreach ($categories as $category)
-                                    <li class="dropdown-submenu">
-                                        <a class="dropdown-item" href="#">{{$category->name}}</a>
-                                        <ul class="dropdown-menu">
-                                            <li class="dropdown-submenu">
-                                                @foreach ($category->brand as $brand)
-                                                    @if ($category->brand != null)
-                                                        <a  class="dropdown-item" href="#">{{$brand->name}}</a>
-                                                    @endif
-                                                @endforeach
-
-                                            </li>
-                                        </ul>
-                                    </li>
-                                @endforeach
-                              </ul>
-                        </div>
-                </li>
+                @endauth
              </ul>
 
 
