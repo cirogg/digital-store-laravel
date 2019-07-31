@@ -14,6 +14,8 @@ use App\User;
 |
 */
 
+Auth::routes();
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,10 +24,6 @@ Route::get('/faq', function () {
     return view('front.faq');
 });
 
-//Admin-control
-Route::get('/admin', function(){
-	return view('back.admin');
-});
 
 // Route::get('/products/create' , 'ProductsController@create');
 // Route::get('/products/{id}/edit', 'ProductsController@edit');
@@ -33,10 +31,6 @@ Route::get('/admin', function(){
 // Si no esta logueado, redirecciona al Login
 Route::middleware('auth')->group(function ()
 {
-	//Products
-	Route::get('/products/create', 'ProductsController@create');
-	Route::delete('/products/{id}', 'ProductsController@destroy');
-	Route::get('/products/{id}/edit', 'ProductsController@edit');
 	Route::get('/products', 'ProductsController@index');
 	//Cart
 	Route::get('/cart/{id}', 'CartsController@show');
@@ -48,31 +42,37 @@ Route::middleware('auth')->group(function ()
 Route::get('/products/search', 'ProductsController@searchByName');
 Route::resource('/products', 'ProductsController')->except(['create', 'destroy', 'edit']);
 //Route::post('/products/create','ProductsController@store');
-Route::delete('/products/{id}', 'ProductsController@destroy');
 
 //Rutas User
-Route::middleware('auth')->get('/users/search', 'UsersController@searchByEmail');
-Route::middleware('auth')->resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
 Route::middleware('auth')->get('/users/edit/{id}', 'UsersController@edit');
 Route::post('/users/{id}', 'UsersController@show');
 
-//Category
 
-Route::middleware('auth')->group(function ()
+Route::middleware('admin')->group(function ()
 {
-Route::get('/categorias', 'CategoriesController@index');
-Route::get('/categorias/{id}/edit', 'CategoriesController@edit');
-Route::put('/categorias/{id}', 'CategoriesController@update');
-Route::delete('/categorias/{id}', 'CategoriesController@destroy');
-Route::get('/categorias/create', 'CategoriesController@create');
-Route::post('/categorias', 'CategoriesController@store');
+	//Products
+	Route::get('/products/create', 'ProductsController@create');
+	Route::delete('/products/{id}', 'ProductsController@destroy');
+	Route::get('/products/{id}/edit', 'ProductsController@edit');
+	//USERS
+	Route::middleware('auth')->get('/users/search', 'UsersController@searchByEmail');
+	Route::middleware('auth')->resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
+	//Admin-control
+	Route::get('/admin', function(){
+		return view('back.admin');
+	});
+
+	Route::delete('/products/{id}', 'ProductsController@destroy');
+	//CATEGORIES --- TODAS ADMIN
+	Route::get('/categorias', 'CategoriesController@index');
+	Route::get('/categorias/{id}/edit', 'CategoriesController@edit');
+	Route::put('/categorias/{id}', 'CategoriesController@update');
+	Route::delete('/categorias/{id}', 'CategoriesController@destroy');
+	Route::get('/categorias/create', 'CategoriesController@create');
+	Route::post('/categorias', 'CategoriesController@store');
 });
 
 
 
-Auth::routes();
 
-
-
-
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
