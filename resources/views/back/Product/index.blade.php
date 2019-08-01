@@ -13,7 +13,7 @@
 <h1 class="mt-3 mb-3 text-center">Listado de productos</h1>
 
 <div class="text-right">
-    <a class="btn btn-warning" href="/products/create"><i class="fas fa-plus"></i>  Crear nuevo producto</a>
+    <a class="btn btn-lg btn-warning" href="/products/create"><i class="fas fa-plus"></i>  Crear nuevo producto</a>
 </div>
 
 
