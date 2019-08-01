@@ -51,7 +51,7 @@ Route::resource('/products', 'ProductsController')->except(['create', 'destroy',
 
 //Rutas User
 Route::middleware('auth')->get('/users/edit/{id}', 'UsersController@edit');
-//Route::get('/users/{id}', 'UsersController@show');
+Route::get('/users/{id}', 'UsersController@show');
 
 
 Route::middleware('admin')->group(function ()
@@ -69,11 +69,18 @@ Route::middleware('admin')->group(function ()
 
 	//CATEGORIES --- TODAS ADMIN
 	Route::get('/categorias', 'CategoriesController@index');
-	Route::get('/categorias/{id}/edit', 'CategoriesController@edit');
+	Route::get('/categorias/edit/{id}', 'CategoriesController@edit');
 	Route::put('/categorias/{id}', 'CategoriesController@update');
 	Route::delete('/categorias/{id}', 'CategoriesController@destroy');
 	Route::get('/categorias/create', 'CategoriesController@create');
-	Route::post('/categorias', 'CategoriesController@store');
+    Route::post('/categorias', 'CategoriesController@store');
+
+    Route::get('/brands', 'BrandsController@index');
+	Route::get('/brands/edit/{id}', 'BrandsController@edit');
+	Route::put('/brands/{id}', 'BrandsController@update');
+	Route::delete('/brands/{id}', 'BrandsController@destroy');
+	Route::get('/brands/create', 'BrandsController@create');
+	Route::post('/brands', 'BrandsController@store');
 });
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Brand;
 
 class BrandsController extends Controller
 {
@@ -13,7 +14,9 @@ class BrandsController extends Controller
      */
     public function index()
     {
-        //
+        $allBrands = Brand::all();
+
+        return view('back.Brand.index', compact('allBrands'));
     }
 
     /**
@@ -23,7 +26,7 @@ class BrandsController extends Controller
      */
     public function create()
     {
-        //
+        return view('back.Brand.create');
     }
 
     /**
@@ -34,7 +37,15 @@ class BrandsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        Brand::create([
+            'name' => $request->input('name')
+            ]);
+
+        return redirect('/brands');
     }
 
     /**
@@ -56,7 +67,9 @@ class BrandsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $brandFound = Brand::findOrFail($id);
+
+        return view('back.Brand.edit', compact('brandFound'));
     }
 
     /**
@@ -68,7 +81,19 @@ class BrandsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $brandFound = Brand::findOrFail($id);
+
+        $request->validate([
+            'name' => 'required'
+
+        ]);
+
+        $brandFound->name = $request->input('name');
+
+
+        $brandFound->save();
+
+        return redirect('/brands');
     }
 
     /**
@@ -79,6 +104,10 @@ class BrandsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $brandFound = Brand::findOrFail($id);
+
+        $brandFound->delete();
+
+        return back();
     }
 }
