@@ -6,14 +6,14 @@
     <h1 class="text-center mt-3">Listado de categorías</h1>
 
     <div class="text-right">
-        <a class="btn btn-warning" href="/categorias/create"><i class="fas fa-plus"></i>  Crear nueva categoría</a>
+        <a class="btn btn-lg btn-warning" href="/categorias/create"><i class="fas fa-plus"></i>  Crear nueva categoría</a>
     </div>
 
-    <ul>
+    <ul class="text-center">
         @foreach ($allCategories as $category)
-            <li class="mt-2">
-                <i class="{{$category->icon}}"></i> 
-                {{$category->name}} 
+            <li class="mt-3 list-cat">
+                <i class="{{$category->icon}} orange mr-2"></i> 
+                <b class="mr-2">{{$category->name}}</b>
                 <a class="btn btn-primary" href="/categorias/{{$category->id}}/edit">EDITAR</a>
 
 
@@ -22,6 +22,8 @@
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$category->id}}">
                         ELIMINAR
                 </button>
+                <hr>
+                
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
