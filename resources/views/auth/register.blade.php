@@ -130,4 +130,7 @@
         </div>
     </div>
 </div>
+
+<script src= "/js/validateRegister.js"> </script>
+
 @endsection
