@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('avatar', 100);
             $table->string('country', 100);
+            $table->string('city', 100)->nullable();
             $table->tinyInteger('admin')->default(0);
             $table->rememberToken();
             $table->timestamps();

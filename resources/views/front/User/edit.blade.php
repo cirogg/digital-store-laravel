@@ -92,12 +92,38 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="country" class="col-md-4 col-form-label text-md-right">{{ __('País') }}</label>
+                            <label for="country" class="col-md-4 col-form-label text-md-right">País</label>
 
                             <div class="col-md-6">
-                                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ $userFound->country }}" autocomplete="country" autofocus>
+                              <select
+                                class="form-control @error('country') is-invalid @enderror"
+                                name="country"
+                                id="country"
+                              >
+                                <option value="">Elegí un país</option>
+                              </select>
 
                                 @error('country')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row" style="display: none;">
+                            <label for="country" class="col-md-4 col-form-label text-md-right">Provincia:</label>
+
+                            <div class="col-md-6">
+                              <select
+                                class="form-control @error('provincia') is-invalid @enderror"
+                                name="city"
+                                id="city"
+                              >
+                                <option value="">Elegí una provincia</option>
+                              </select>
+
+                                @error('provincia')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -140,4 +166,5 @@
         </div>
     </div>
 </div>
+<script src="/js/selectPaises.js"></script>
 @endsection
