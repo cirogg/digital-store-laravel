@@ -40,7 +40,7 @@ foreach ($categories as $category) {
                                                 <a  class="dropdown-item" href="/products/filter/{{ $category->id }}/{{$brand->id}}">{{$brand->name}}</a>
                                             @endif
                                         @endforeach
-                                        
+
                                     </li>
                                 </ul>
                             </li>
@@ -76,7 +76,7 @@ foreach ($categories as $category) {
                 @if(Auth::user() && Auth::user()->admin == 1)
                     <a class="btn btn-info mr-2" href="/admin">Panel de Control</a>
                 @endif
-            
+
 
 
                 <!-- Authentication Links -->

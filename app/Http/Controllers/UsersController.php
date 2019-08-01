@@ -51,10 +51,19 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        $userFound = User::findOrFail($id);
-        return view('front.User.show', compact('userFound'));
+        if (Auth::user()){
 
 
+            if ($id == Auth::user()->id or Auth::user()->admin == 1) {
+                $userFound = User::findOrFail($id);
+                return view('front.User.show', compact('userFound'));
+            }else {
+                $userFound = Auth::user();
+                return redirect("/users/" . "$userFound->id");
+            }
+        }else{
+            return redirect("/login");
+        }
     }
 
     /**
@@ -157,7 +166,7 @@ class UsersController extends Controller
 
 
 
-        return redirect("/users/$id"); 
+        return redirect("/users/$id");
     }
 
 

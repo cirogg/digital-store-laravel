@@ -1,32 +1,29 @@
 @extends('front.template')
 
-@section('pageTitle', 'Listado Categorías')
+@section('pageTitle', 'Listado Marcas')
 
 @section('mainContent')
-    <h1 class="text-center mt-3">Listado de categorías</h1>
+    <h1 class="text-center mt-3">Listado de marcas</h1>
 
     <div class="text-right">
-        <a class="btn btn-lg btn-warning" href="/categorias/create"><i class="fas fa-plus"></i>  Crear nueva categoría</a>
+        <a class="btn btn-warning" href="/brands/create"><i class="fas fa-plus"></i>  Crear nueva marca</a>
     </div>
 
-    <ul class="text-center">
-        @foreach ($allCategories as $category)
-            <li class="mt-3 list-cat">
-                <i class="{{$category->icon}} orange mr-2"></i> 
-                <b class="mr-2">{{$category->name}}</b>
-                <a class="btn btn-primary" href="/categorias/{{$category->id}}/edit">EDITAR</a>
+    <ul>
+        @foreach ($allBrands as $brand)
+            <li class="mt-2">
+                {{$brand->name}}
+                <a class="btn btn-primary" href="/brands/{{$brand->id}}/edit">EDITAR</a>
 
 
                 {{-- MODAL BOOTSTRAP PARA ELIMINAR --}}
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$category->id}}">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$brand->id}}">
                         ELIMINAR
                 </button>
-                <hr>
-                
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal{{$category->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal{{$brand->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -36,12 +33,12 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        Estás por eliminar la categoría definitivamente.
+                        Estás por eliminar la marca definitivamente.
                         <b>¿Estás Seguro?</b>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-                        <form action="/categorias/{{ $category->id }}" method="post">
+                        <form action="/brands/{{ $brand->id }}" method="post">
                         @csrf
                         {{ method_field('DELETE') }}
                         <button class="btn btn-danger" type="submit">Eliminar</button>
@@ -54,4 +51,4 @@
         @endforeach
     </ul>
 @endsection
-    
+
