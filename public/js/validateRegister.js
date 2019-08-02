@@ -88,6 +88,7 @@ window.addEventListener('load', function () {
 // Si tratan de enviar el formulario
 theForm.addEventListener('submit', function (event) {
 
+
 	// Al momento de SUBMITEAR el formulario iteramos los campos y validamos si están vacíos
 	formInputs.forEach(function (input) {
 		if (input.value.trim() === '') {
@@ -97,18 +98,18 @@ theForm.addEventListener('submit', function (event) {
 			input.classList.add('is-invalid');
 			// Mostramos el mensaje de error
             input.nextElementSibling.innerHTML = 'El campo <b>' + input.getAttribute('id') + '</b> es obligatorio';
-            console.log("AAAAAAAAAAAAAAAAAAAAAA");
             event.preventDefault();
 		}
     });
-
-	console.log('Campos con errores:', errorsObj);
-	console.log('Cantidad de campos con errores:', Object.keys(errorsObj).length);
-
-	// Si el objeto que contiene los errores NO está vacío evitamos que se SUBMITEE el formulario
-	if (Object.keys(errorsObj).length > 0) {
-		event.preventDefault();
-	}
+	//
+	// console.log('Campos con errores:', errorsObj);
+	// console.log('Cantidad de campos con errores:', Object.keys(errorsObj).length);
+	//
+	// // Si el objeto que contiene los errores NO está vacío evitamos que se SUBMITEE el formulario
+	// if (Object.keys(errorsObj).length > 0) {
+	//
+	// 	event.preventDefault();
+	// }
 });
 
 });
