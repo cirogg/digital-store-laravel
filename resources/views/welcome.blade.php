@@ -7,12 +7,20 @@
     <title>Digital Store</title>
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+
+    {{-- slick --}}
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 </head>
 <body>
 
     <header>
 
         @include('front.navbar')
+        {{-- {{dd("$categories")}} --}}
 
     </header>
 
@@ -36,21 +44,25 @@
         <main>
 
                 <nav class="products-nav container">
-                  <ul>
-                    {{-- @foreach ($categories as $category)
+                  <ul id="nav-categories" class = "products-nav-ul">
 
+                    @foreach ($categories as $category)
                     <li><a href="#"><i class="{{$category->icon}}"></i>{{$category->name}}</a></li>
-                    @endforeach --}}
-                    <li><a href="#"><i class="fas fa-laptop"></i>Notebooks</a></li>
+                    @endforeach
+                    {{-- <li><a href="#"><i class="fas fa-laptop"></i>Notebooks</a></li>
                     <li><a href="#"><i class="fas fa-tv"></i>TVs y Monitores</a></li>
                     <li><a href="#"><i class="fas fa-tablet-alt"></i>Tablets</a></li>
                     <li><a href="#"><i class="far fa-clock"></i>Smartwatches</a></li>
-                    <li><a href="#"><i class="fas fa-plus"></i>Otras Categorías</a></li>
+                    <li><a href="#"><i class="fas fa-plus"></i>Otras Categorías</a></li> --}}
                   </ul>
                 </nav>
 
                 <!-- Carousel  -->
-
+                {{-- <div class="test-car">
+                    <div><img class="d-block w-100" src="/webimages/summer-tech-wide.jpg" alt="First slide"></div>
+                    <div><img class="d-block w-100" src="/webimages/outlet-tech-small-wide.jpg" alt="Second slide"></div>
+                    <div><img class="d-block w-100" src="/webimages/sales-img-small-wide.jpg" alt="Third slide"></div>
+                </div> --}}
 
                     <div class="row no-gutters">
                       <div class="container-oferta col-12 col-lg-12 col-md-12">
@@ -187,5 +199,12 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    {{-- slick --}}
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+
+    <script src= "/js/welcome.js"> </script>
 </body>
 </html>

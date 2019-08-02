@@ -31,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
                 ]);
         });
 
+       view()->share('categories', \App\Category::all());
 
 
     }
