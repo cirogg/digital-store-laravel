@@ -1,9 +1,8 @@
 var emailsTraidos = [];
+var te = false;
 window.addEventListener('load', function() {
 
     var inputEmail = document.querySelector('#email');
-    //var emailExist = false;
-
 
     function genericFetchCall(endPoint, callback) {
         fetch(endPoint)
@@ -22,62 +21,36 @@ window.addEventListener('load', function() {
 
     function getEmailsSistema(users) {
         users.forEach(function(oneUser) {
-            //console.log(oneUser.email);
             emailsTraidos.push(oneUser.email)
         });
     }
 
-
-
-
-
     genericFetchCall('/api/users', getEmailsSistema);
 
-    // console.log(genericFetchCall('/api/users', getEmailsSistema));
-    //test1@gmail.com
     inputEmail.addEventListener('blur', function() {
 
-        //console.log("AAAAAAAA");
-        //console.log(emailsTraidos);
-
         function emailExist() {
-            //console.log(inputEmail.value);
-            emailsTraidos.forEach(email => {
-                if (inputEmail.value === email) {
-                    console.log(inputEmail.value);
-                    console.log(email);
-                    console.log("TRUEEEEE");
-                    return true;
+            var isTrue = false;
+
+            for (let index = 0; index < emailsTraidos.length; index++) {
+
+                if (inputEmail.value === emailsTraidos[index]) {
+                    isTrue = true;
+                    break;
                 } else {
-                    // console.log(inputEmail.value);
-                    // console.log(email);
-                    // console.log("FALSEEEEE");
-                    return false;
+                    isTrue = false;
                 }
-            });
+
+            }
+            if (isTrue) {
+                return true;
+            } else {
+                return false;
+            }
         }
 
         te = emailExist();
         console.log(te);
-        console.log(typeof(te));
-
-        if (te === true) {
-            console.log("ENTRO AL TRUE");
-        } else {
-            console.log("ENTRO AL FALSE");
-        }
-
-        function booleanReturnCheck() {
-            return true;
-        }
-
-        var isBool = booleanReturnCheck();
-        console.log(isBool);
-        console.log(typeof(isBool));
-
-
-        //console.log(emailExist);
-
     });
 
 });
