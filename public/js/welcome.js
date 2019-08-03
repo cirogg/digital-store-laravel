@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('#nav-categories').slick({
         slidesToShow: 7,
         autoplay: true,
-        autoplaySpeed: 500,
+        autoplaySpeed: 2000,
         infinite: true,
         arrows: false
 

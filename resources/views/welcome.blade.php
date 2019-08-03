@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Digital Store</title>
     <link rel="stylesheet" href="/css/app.css">
-    <link rel="stylesheet" href="/css/styles.css">
+    <link id="style" rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
 
     {{-- slick --}}
     <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css"/>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 
 </head>
 <body>
@@ -206,5 +206,6 @@
     <script type="text/javascript" src="slick/slick.min.js"></script>
 
     <script src= "/js/welcome.js"> </script>
+    <script src="/js/changeStyle.js"></script>
 </body>
 </html>
