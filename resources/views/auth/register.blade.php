@@ -160,5 +160,6 @@
 </div>
 <script src="/js/selectPaises.js"></script>
 <script src= "/js/validateRegister.js"> </script>
+<script src= "/js/fetch.js"> </script>
 
 @endsection
