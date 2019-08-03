@@ -84,6 +84,20 @@ Route::middleware('admin')->group(function ()
 });
 
 
+//API
+Route::get('/api/products', function () {
+	return Product::select('name', 'price', 'image', 'description')->get();
+});
+
+Route::get('/api/products/{id}', function ($id) {
+	return Product::select('name', 'price', 'image', 'description')->where('id',$id)->get();
+});
+
+Route::get('api/users', function () {
+	return User::select('name', 'surname', 'nickname', 'email', 'avatar')->get();
+});
+
+
 
 
 //Route::get('/home', 'HomeController@index')->name('home');
