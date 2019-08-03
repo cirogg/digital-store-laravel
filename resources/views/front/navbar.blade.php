@@ -74,8 +74,13 @@ foreach ($categories as $category) {
 
 
                 @if(Auth::user() && Auth::user()->admin == 1)
-                    <a class="btn btn-info mr-2" href="/admin">Panel de Control</a>
+                <li class="nav-item active">
+                    <a class="btn btn-primary mr-2" href="/admin">Panel de Control</a>
+                </li>
                 @endif
+                <li class="nav-item active mr-2 ">
+                    <button type="button" id="btn-style" class="btn btn-primary">Styles</button>
+                </li>
 
 
 
