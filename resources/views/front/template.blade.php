@@ -9,6 +9,7 @@
     <link id="style" rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
+    
 
     @include('front.navbar')
 

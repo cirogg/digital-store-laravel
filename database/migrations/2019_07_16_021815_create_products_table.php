@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->unsignedDecimal('price', 10, 2);
             $table->string('image', 100)->default('default.jpg');
             $table->text('description');
-            $table->unsignedInteger('times_sold')->nullable();
+            $table->boolean('featured')->nullable();
             $table->timestamps();
         });
     }

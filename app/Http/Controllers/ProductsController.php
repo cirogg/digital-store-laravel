@@ -79,8 +79,8 @@ class ProductsController extends Controller
 		], [
             'name.required' => 'El nombre del producto es obligatorio',
             'name.max' => 'El máximo permitido es 10',
-			      'required' => 'El campo :attribute es obligatorio',
-			      'numeric' => 'El campo :attribute debe ser numérico',
+			'required' => 'El campo :attribute es obligatorio',
+			'numeric' => 'El campo :attribute debe ser numérico',
             'category_id.required' => 'Debes seleccionar una categoría',
             'brand_id.required' => 'Debes seleccionar una marca',
             'image.required' => 'Selecciona una imagen descriptiva del producto',
@@ -95,6 +95,7 @@ class ProductsController extends Controller
         $product->description = $request->input('description');
         $product->category_id = $request->input('category_id');
         $product->brand_id = $request->input('brand_id');
+        $product->featured = $request->input('featured');
 
         $imagen = $request->file('image');
 
@@ -179,6 +180,7 @@ class ProductsController extends Controller
         $productUpdate->description = $request->input('description');
         $productUpdate->category_id = $request->input('category_id');
         $productUpdate->brand_id = $request->input('brand_id');
+        $productUpdate->featured = $request->input('featured');
 
         $imagen = $request->file('image');
 

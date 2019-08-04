@@ -120,6 +120,24 @@
                 </div>
             </div>
 
+            <div class="col-12 col-md-6">
+                    <div class="form-check">
+                            <input 
+                            class="form-check-input" 
+                            name="featured" 
+                            type="checkbox" 
+                            value="1" 
+                            id="defaultCheck1"
+                            @if ($productEdit->featured == 1)
+                                checked
+                            @endif
+                            >
+                            <label class="form-check-label" for="defaultCheck1">
+                            Producto destacado
+                            </label>
+                    </div>
+            </div>
+
             <div class="col-12 text-right">
                 <button type="submit" class="btn btn-success">EDITAR PRODUCTO</button>
             </div>

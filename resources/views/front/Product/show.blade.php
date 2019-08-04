@@ -1,5 +1,6 @@
 @extends('front.template')
-
+{{-- FORMATO PESOS ARGENTINOS --}}
+@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp 
 @section('pageTitle')
     Producto:  {{ $productFound->name }}
 @endsection
@@ -11,12 +12,12 @@
     <div class="container-detalle">
       <div class="row">
         <div class="container-img col-lg-6 col-md-6 col-sm-6 col-12">
-            <img src="/storage/products/{{ $productFound->image }}" width="300px" style="max-width: 500px;" alt="imagen producto">
+            <img  class="product-cart" src="/storage/products/{{ $productFound->image }}" width="300px" style="max-width: 500px;" alt="imagen producto">
         </div>
         <div class="container-datos-producto col-lg-6 col-md-6 col-sm-6 col-12">
           <h1> {{ $productFound->name  }} </h1>
           <p>Descripción: {{ $productFound->description  }} </p>
-          <h3 class="text-success">Precio: ${{ $productFound->price  }} </h3>
+          <h3 class="text-success">Precio: {{ money_format('%.2n', $productFound->price) }} </h3>
           <br>
           <div class="container-cat-brand">
             <h5>Categoria: {{ $productFound->category->name  }} </h5>
@@ -31,12 +32,16 @@
               </form>
                         
             @else
-              <a href="/login"><i class="fas fa-cart-plus"></i></a>
+              <a href="/login" class="button-oferta">Buy NOW</a>
             @endif
 
           
 
         </div>
+        @auth
+            
+        
+        @if (AUth::user()->admin == 1)
         <div class="container-buttons col-6">
                 <div class="form-inline">
                     <form  action="/products/{{ $productFound->id }}/edit" method="get">
@@ -76,6 +81,10 @@
                     </div>
                 </div>
             </div>
+
+            @endif
+
+            @endauth
 
 
       </div>

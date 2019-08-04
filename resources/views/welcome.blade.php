@@ -16,6 +16,8 @@
 
 </head>
 <body>
+  {{-- FORMATO PESOS ARGENTINOS --}}
+  @php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp 
 
     <header>
 
@@ -133,62 +135,72 @@
                     <!-- Fin SECTION OFERTAS -->
 
                     <section class="section-articulos container" id="section-articulos">
-                      <h2>Productos destacados</h2>
-                      <div class="row no-gutters">
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                          <article class="articulo">
-                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
-                            <h4>Articulo Nombre</h4>
-                            <h3>$9999</h3>
-                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
-                          </article>
+
+                      <h2 class="mt-5">Productos destacados</h2>
+
+                      <div class="container">
+
+                        <div class="row">
+
+                        @foreach ($products as $product)
+                            
+                        <article class="col-12 col-sm-6 col-md-6 col-lg-4 mt-3 text-center">
+                          
+                            <img class="mt-2 img-thumbnail" src="/storage/products/{{ $product->image }}" width="95%" alt="foto del producto">
+                            <h4 class="mt-2">{{ $product->name }}</h4>
+                            <h3 class="mt-2">{{ money_format('%.2n', $product->price) }}</h3>
+                            <a href="/products/{{ $product->id }}" class="button-buy-now">Shop Now!</a>
+                          
+                        </article>
+                        @endforeach
                         </div>
 
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                          <article class="articulo">
-                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
-                            <h4>Articulo Nombre</h4>
-                            <h3>$9999</h3>
-                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
-                          </article>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                          <article class="articulo">
-                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
-                            <h4>Articulo Nombre</h4>
-                            <h3>$9999</h3>
-                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
-                          </article>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                          <article class="articulo">
-                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
-                            <h4>Articulo Nombre</h4>
-                            <h3>$9999</h3>
-                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
-                          </article>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                          <article class="articulo">
-                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
-                            <h4>Articulo Nombre</h4>
-                            <h3>$9999</h3>
-                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
-                          </article>
-                        </div>
-
-                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
-                          <article class="articulo">
-                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
-                            <h4>Articulo Nombre</h4>
-                            <h3>$9999</h3>
-                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
-                          </article>
-                        </div>
                       </div>
+                        {{-- <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                          <article class="articulo">
+                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
+                            <h4>Articulo Nombre</h4>
+                            <h3>$9999</h3>
+                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
+                          </article>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                          <article class="articulo">
+                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
+                            <h4>Articulo Nombre</h4>
+                            <h3>$9999</h3>
+                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
+                          </article>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                          <article class="articulo">
+                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
+                            <h4>Articulo Nombre</h4>
+                            <h3>$9999</h3>
+                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
+                          </article>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                          <article class="articulo">
+                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
+                            <h4>Articulo Nombre</h4>
+                            <h3>$9999</h3>
+                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
+                          </article>
+                        </div>
+
+                        <div class="col-12 col-sm-6 col-md-6 col-lg-4">
+                          <article class="articulo">
+                            <img src="https://http2.mlstatic.com/monitores-D_NP_592925-MLA25521012722_042017-Q.jpg" alt="foto del producto">
+                            <h4>Articulo Nombre</h4>
+                            <h3>$9999</h3>
+                            <a href="detalle.php" class="button-buy-now">Shop Now!</a>
+                          </article>
+                        </div> --}}
+                      
                     </section>
                     <!-- FIN SECTION ARTICULOS -->
 

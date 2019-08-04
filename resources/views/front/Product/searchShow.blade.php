@@ -1,5 +1,6 @@
 @extends('front.template')
-
+{{-- FORMATO PESOS ARGENTINOS --}}
+@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp 
 @section('pageTitle', 'Resultado Búsqueda')
 
 
@@ -22,11 +23,11 @@
 @forelse ($productsFound as $productFound)
 
         <div class="card">
-        <img class="card-img-top product-cart"src="/storage/products/{{ $productFound->image }}" alt="imagen producto">
+        <img class="card-img-top product-cart" src="/storage/products/{{ $productFound->image }}" alt="imagen producto">
           <div class="card-body">
             <h5> {{ $productFound->name  }} </h5>
             <p class="card-text">{{ $productFound->description }}</p>
-            <p class="card-text">Precio: ${{ $productFound->price  }}</p>
+            <p class="card-text">Precio: {{ money_format('%.2n', $productFound->price) }}</p>
             <div class="form-inline ">
               @auth
                  @if (AUth::user()->admin == 1)
@@ -84,7 +85,7 @@
                     </form>
 
                     @else
-                      <a href="/login"><i class="fas fa-cart-plus button-cart btn btn-warning"></i></a>
+                      <a href="/login" class="button-cart btn btn-warning" ><i class="fas fa-cart-plus"></i></a>
                     @endauth
             </div>
           </div>

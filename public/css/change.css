@@ -182,7 +182,7 @@ body {
 
 /* SECTION ARTICULOS */
 
-.articulo{
+/* .articulo{
   max-width: 600px;
   display: flex;
   align-items: center;
@@ -193,7 +193,7 @@ body {
 
 .articulo h4{
   margin: 0;
-}
+} */
 
 .button-buy-now{
   font-size: 1.8em;

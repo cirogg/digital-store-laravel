@@ -113,7 +113,16 @@
 						</span>
 					@endif
 				</div>
-			</div>
+            </div>
+            
+            <div class="col-12 col-md-6">
+                <div class="form-check">
+                        <input class="form-check-input" name="featured" type="checkbox" value="" id="defaultCheck1">
+                        <label class="form-check-label" for="defaultCheck1">
+                        Producto destacado
+                        </label>
+                </div>
+            </div>
 
             <div class="col-12 text-right">
 				<button type="submit" class="btn btn-success">CREAR PRODUCTO</button>
