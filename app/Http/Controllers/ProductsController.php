@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 use App\Product;
@@ -104,6 +105,20 @@ class ProductsController extends Controller
             $imagen->storePubliclyAs("public/products", $finalImage);
             $product->image = $finalImage;
         }
+
+
+
+
+        $test = DB::table('brand_category')->where([['category_id',$product->category_id],['brand_id',$product->brand_id]])->first();
+
+        if($test==null){
+            DB::table('brand_category')->insert(
+                ['category_id'=> $product->category_id, 'brand_id' => $product->brand_id]
+                );
+        }
+
+
+
 
         //dd($imagen);
 
@@ -211,7 +226,7 @@ class ProductsController extends Controller
 
         $productDestroy->delete();
 
-        return back();
+        return redirect('/products');
     }
 
     public function filter($category_id, $brand_id = null)
@@ -221,7 +236,7 @@ class ProductsController extends Controller
         } else {
             $productsFound = Product::where('category_id', $category_id)->paginate(9);
         }
-        
+
         $countItem = count($productsFound);
 
         $item = null;

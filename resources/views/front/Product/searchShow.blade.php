@@ -1,6 +1,6 @@
 @extends('front.template')
 {{-- FORMATO PESOS ARGENTINOS --}}
-@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp 
+@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp
 @section('pageTitle', 'Resultado Búsqueda')
 
 
@@ -15,7 +15,7 @@
   <h3>Se encontró: <b>{{ $countItem }}</b> producto</h3>
 @else
   @if ($countItem)
-  <h3>Se encontraron: <b>{{ $countItem }}</b> productos</h3>    
+  <h3>Se encontraron: <b>{{ $countItem }}</b> productos</h3>
   @endif
 @endif
 
@@ -27,21 +27,21 @@
           <div class="card-body">
             <h5> {{ $productFound->name  }} </h5>
             <p class="card-text">{{ $productFound->description }}</p>
-            <p class="card-text">Precio: {{ money_format('%.2n', $productFound->price) }}</p>
+            <p class="card-text">Precio: {{ $productFound->price }}</p>
             <div class="form-inline ">
               @auth
                  @if (AUth::user()->admin == 1)
-                     
+
                   <form class="m-auto" action="/products/{{ $productFound->id }}/edit" method="get">
                     <button class="btn btn-success" type="submit">EDITAR</button>
                   </form>
-                  
+
                   {{-- MODAL BOOTSTRAP PARA ELIMINAR --}}
                   <!-- Button trigger modal -->
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$productFound->id}}">
                             ELIMINAR
                         </button>
-                        
+
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal{{$productFound->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -67,15 +67,15 @@
                             </div>
                           </div>
                         </div>
-                      @endif   
-                      
+                      @endif
+
                     @endauth
-                    
+
 
                     <form class="m-auto" action="/products/{{ $productFound->id }}" method="get">
                         <button class="btn btn-primary" type="submit">VER MÁS</button>
                     </form>
-                    
+
                     @auth
                     <form action="/cart" method="post">
                       @csrf

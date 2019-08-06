@@ -17,7 +17,7 @@
 </head>
 <body>
   {{-- FORMATO PESOS ARGENTINOS --}}
-  @php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp 
+  @php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp
 
     <header>
 
@@ -143,14 +143,14 @@
                         <div class="row">
 
                         @foreach ($products as $product)
-                            
+
                         <article class="col-12 col-sm-6 col-md-6 col-lg-4 mt-3 text-center">
-                          
+
                             <img class="mt-2 img-thumbnail" src="/storage/products/{{ $product->image }}" width="95%" alt="foto del producto">
                             <h4 class="mt-2">{{ $product->name }}</h4>
-                            <h3 class="mt-2">{{ money_format('%.2n', $product->price) }}</h3>
+                            <h3 class="mt-2">{{ $product->price }}</h3>
                             <a href="/products/{{ $product->id }}" class="button-buy-now">Shop Now!</a>
-                          
+
                         </article>
                         @endforeach
                         </div>
@@ -200,7 +200,7 @@
                             <a href="detalle.php" class="button-buy-now">Shop Now!</a>
                           </article>
                         </div> --}}
-                      
+
                     </section>
                     <!-- FIN SECTION ARTICULOS -->
 

@@ -121,11 +121,10 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 130px;
-  height: 130px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
   background-color: #000;
-
   transition: all .5s ease;
 }
 
@@ -356,8 +355,8 @@ body {
   }
 
   .products-nav ul li a {
-    width: 95px;
-    height: 95px;
+    width: 130px;
+    height: 130px;
   }
 
   .banner img {

@@ -1,8 +1,8 @@
 @extends('front.template')
 {{-- FORMATO PESOS ARGENTINOS --}}
-@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp 
+@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp
 @section('pageTitle', 'Listado de Productos')
-    
+
 @section('mainContent')
 
 @php
@@ -38,7 +38,7 @@
           <div class="card-body">
             <h5> {{ $productFound->name  }} </h5>
             <p class="card-text">{{ $productFound->description }}</p>
-            <p class="card-text">Precio: {{ money_format('%.2n', $productFound->price) }}</p>
+            <p class="card-text">Precio: {{ $productFound->price }}</p>
             <div class="form-inline ">
                     <form class="m-auto" action="/products/{{ $productFound->id }}/edit" method="get">
                         <button class="btn btn-success" type="submit">EDITAR</button>
@@ -76,7 +76,7 @@
                       </div>
                     </div>
 
-                    
+
 
                     <form class="m-auto" action="/products/{{ $productFound->id }}" method="get">
                         <button class="btn btn-primary" type="submit">VER MÁS</button>
@@ -103,5 +103,5 @@
 
     {{$productsFound->appends(request()->query())->links()}}
 
-    
+
 @endsection

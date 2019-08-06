@@ -73,41 +73,9 @@ window.addEventListener('load', function() {
 
                 // Si un campo NO tiene error, eliminamos la key del objeto y su valor
                 delete errorsObj[this.name];
-
-                // Validamos el tipo de dato del campo title
-                if (this.name === 'title') {
-                    // Validamos que el texto insertado NO supere las 15 letras
-                    if (this.value.length > 15) {
-                        this.classList.add('is-invalid');
-                        this.nextElementSibling.innerHTML = 'El título debe ser inferior a 15 letras';
-                        // Si un campo tiene error, creamos una key con el nombre del campo y valor true
-                        errorsObj[this.name] = true;
-                    }
-                }
-
-                // Validamos el campo rating para verificar que sean solo números
-                if (this.name === 'rating') {
-                    if (!regexNumber.test(this.value.trim())) {
-                        this.classList.add('is-invalid');
-                        this.nextElementSibling.innerHTML = 'Este campo solo admite números';
-                        // Si un campo tiene error, creamos una key con el nombre del campo y valor true
-                        errorsObj[this.name] = true;
-                    }
                 }
             }
         });
-
-        // oneInput.addEventListener('focus', function () {
-        // 	var inputName = this.name;
-        // 	switch (inputName) {
-        // 		case 'title':
-        // 			console.log('Título de la película inferior a 15 letras');
-        // 			break;
-        // 		case 'rating':
-        // 			console.log('Solamente números');
-        // 			break;
-        // 	};
-        // });
     });
 
     // Si tratan de enviar el formulario
