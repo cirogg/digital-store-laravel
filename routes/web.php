@@ -100,6 +100,7 @@ Route::get('api/users', function () {
 
 //Devuelve los CARTS del user ID que le pase
 Route::get('api/carts/', function () {
+
     $cart = Cart::select('id', 'is_paid', 'user_id', 'product_id')->get();
     $cartFilter = $cart->where('user_id', Auth::user()->id);
     return $cartFilter;

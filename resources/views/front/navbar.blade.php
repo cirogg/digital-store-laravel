@@ -50,7 +50,7 @@ foreach ($categories as $category) {
 
                 @auth
                     <li class="nav-item active">
-                            <span id="badge-cart" class="badge badge-danger" style="float:right;margin-bottom:-10px"></span>
+                        <span id="badge-cart" class="badge badge-danger" style="float:right;margin-bottom:-10px"></span>
                         <a class="nav-link" href="/cart/{{Auth::user()->id}}">Carrito</a>
 
                     </li>

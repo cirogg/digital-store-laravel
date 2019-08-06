@@ -17,11 +17,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-      $users = factory(User::class)->times(10)->create();
-      $products = factory(Product::class)->times(10)->create();
+      $users = factory(User::class)->times(40)->create();
+      $products = factory(Product::class)->times(40)->create();
       $brands = factory(Brand::class)->times(8)->create();
       $categories = factory(Category::class)->times(10)->create();
-      $carts = factory(Cart::class)->times(10)->create();
+      //$carts = factory(Cart::class)->times(40)->create();
       DB::table('users')->insert([
 
             'name' => "Admin",
@@ -50,11 +50,11 @@ class DatabaseSeeder extends Seeder
         $product->save();
       }
 
-      foreach ($carts as $cart) {
-        $cart->user()->associate($users->random(1)->first()->id);
-        $cart->product()->associate($products->random(1)->first()->id);
-        $cart->save();
-      }
+    //   foreach ($carts as $cart) {
+    //     $cart->user()->associate($users->random(1)->first()->id);
+    //     $cart->product()->associate($products->random(1)->first()->id);
+    //     $cart->save();
+    //   }
 
       foreach ($brands as $brand) {
         $brand->categories()->sync($categories->random(3));
