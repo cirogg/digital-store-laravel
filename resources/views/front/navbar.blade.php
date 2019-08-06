@@ -125,8 +125,10 @@ foreach ($categories as $category) {
             </ul>
         </div>
     </div>
+    @if (Auth::user())
+      <script src="/js/navbar.js">
+      // var myId = {{Auth::user()->id}};
+      </script>
 
-    <script src="/js/navbar.js">
-    var myId = {{Auth::user()->id}};
-    </script>
+    @endif
 </nav>
