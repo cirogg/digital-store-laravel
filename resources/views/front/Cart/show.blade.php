@@ -1,6 +1,6 @@
 @extends('front.template')
 {{-- FORMATO PESOS ARGENTINOS --}}
-@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp 
+@php setlocale(LC_MONETARY, 'es_AR.UTF-8'); @endphp
 @section('pageTitle', 'Carrito de compras - DS')
 
 @section('mainContent')
@@ -15,7 +15,7 @@
         <img class="card-img-top" src="/storage/products/{{ $product->image }}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{ $product->name }}</h5>
-            <p class="card-text">{{ money_format('%.2n', $product->price) }}</p>
+            <p class="card-text">{{$product->price}}</p>
             <form action="/cart/{{ Auth::user()->id }}/{{$product->id}}" method="post">
                 @csrf
                 {{ method_field('DELETE') }}
@@ -38,8 +38,8 @@
 
 @if ($totalPrice != 0)
 <div class="text-right mt-3">
-        
-        <b>Total a pagar: {{ money_format('%.2n', $totalPrice) }}</b>
+
+        <b>Total a pagar: {{ $totalPrice }}</b>
         <button class="btn btn-lg btn-success ml-2">COMPRAR</button>
 </div>
 @endif

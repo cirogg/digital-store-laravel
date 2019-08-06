@@ -50,7 +50,9 @@ foreach ($categories as $category) {
 
                 @auth
                     <li class="nav-item active">
+                            <span id="badge-cart" class="badge badge-danger" style="float:right;margin-bottom:-10px"></span>
                         <a class="nav-link" href="/cart/{{Auth::user()->id}}">Carrito</a>
+
                     </li>
                 @else
                     <li class="nav-item active">
@@ -123,4 +125,8 @@ foreach ($categories as $category) {
             </ul>
         </div>
     </div>
+
+    <script src="/js/navbar.js">
+    var myId = {{Auth::user()->id}};
+    </script>
 </nav>

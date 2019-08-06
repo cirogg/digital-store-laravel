@@ -2,6 +2,7 @@
 
 use App\Product;
 use App\User;
+use App\Cart;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,6 +96,14 @@ Route::get('/api/products/{id}', function ($id) {
 
 Route::get('api/users', function () {
 	return User::select('name', 'surname', 'nickname', 'email', 'avatar')->get();
+});
+
+//Devuelve los CARTS del user ID que le pase
+Route::get('api/carts/', function () {
+    $cart = Cart::select('id', 'is_paid', 'user_id', 'product_id')->get();
+    $cartFilter = $cart->where('user_id', Auth::user()->id);
+    return $cartFilter;
+
 });
 
 
