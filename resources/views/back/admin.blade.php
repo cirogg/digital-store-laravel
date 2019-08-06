@@ -13,5 +13,5 @@
         <a class="btn btn-lg mt-4 btn-primary col-12 col-md-3" href="/brands">MARCAS</i></a>
     </div>
 
- @include('front.footer-admin')
+
 @endsection
