@@ -1,6 +1,10 @@
 var emailsTraidos = [];
 var te = false;
+var divCity;
 window.addEventListener('load', function() {
+
+    divCity = document.getElementById('divCity');
+    //selectCity.style.display = 'none';
 
     var inputEmail = document.querySelector('#email');
 
@@ -29,6 +33,8 @@ window.addEventListener('load', function() {
     // Capturamos al formulario
     var theForm = document.querySelector('#form-register');
 
+    var cityInput
+
     // Obtenemos todos los campos, pero parseamos la colección a un Array
     var formInputs = Array.from(theForm.elements);
 
@@ -50,7 +56,9 @@ window.addEventListener('load', function() {
         oneInput.addEventListener('blur', function() {
 
             // Pregunto si el campo está vacío (previo trimeo de espacios)
-            if (this.value.trim() === '') {
+            if (this.value.trim() === '' && this.getAttribute('id') != "city") {
+
+
                 // Si el campo está vacío, le agrego la clase 'is-invalid'
                 this.classList.add('is-invalid');
 
@@ -73,8 +81,8 @@ window.addEventListener('load', function() {
 
                 // Si un campo NO tiene error, eliminamos la key del objeto y su valor
                 delete errorsObj[this.name];
-                }
             }
+
         });
     });
 
@@ -82,17 +90,40 @@ window.addEventListener('load', function() {
     theForm.addEventListener('submit', function(event) {
 
 
+        //console.log(selectCity.value);
+
+
         // Al momento de SUBMITEAR el formulario iteramos los campos y validamos si están vacíos
         formInputs.forEach(function(input) {
-            if (input.value.trim() === '') {
-                // Si el campo está vacío creamos dentro del objeto de errores una key con valor true
+            //console.log(selectCity.style.display);
+            if (input.value.trim() === '' && input.getAttribute('id') != "city") {
+                console.log('NO ES CITY')
+                    // Si el campo está vacío creamos dentro del objeto de errores una key con valor true
                 errorsObj[input.name] = true;
                 // Asiganmos la clase de CSS
                 input.classList.add('is-invalid');
                 // Mostramos el mensaje de error
                 input.nextElementSibling.innerHTML = 'El campo <b>' + input.getAttribute('id') + '</b> es obligatorio';
                 event.preventDefault();
+            } else if (input.getAttribute('id') == "city" && divCity.style.display != 'none') {
+                console.log("ES CITY Y ESTA VACIO");
+                if (input.value.trim() === '') {
+                    // Si el campo está vacío creamos dentro del objeto de errores una key con valor true
+                    errorsObj[input.name] = true;
+                    // Asiganmos la clase de CSS
+                    input.classList.add('is-invalid');
+                    // Mostramos el mensaje de error
+                    input.nextElementSibling.innerHTML = 'El campo <b>' + divCity.getAttribute('id') + '</b> es obligatorio';
+                    event.preventDefault();
+                }
+            } else if (input.getAttribute('id') == "city" && divCity.style.display === 'none') {
+                console.log("AAAAAAAAAAAAAAAACA TA");
+                //event.preventDefault();
             }
+
+
+
+
         });
         //
         // console.log('Campos con errores:', errorsObj);
@@ -131,7 +162,7 @@ window.addEventListener('load', function() {
         }
 
         te = emailExist();
-        console.log(te);
+        //console.log(te);
     });
 
 

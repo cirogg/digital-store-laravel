@@ -110,7 +110,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row" style="display: none;">
+                        <div id="divCity" class="form-group row" style="display: none;">
                             <label id="label-province" for="country" class="col-md-4 col-form-label text-md-right">Provincia:</label>
 
                             <div class="col-md-6">
