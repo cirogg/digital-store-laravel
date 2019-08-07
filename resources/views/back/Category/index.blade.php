@@ -11,9 +11,9 @@
 
     <ul class="text-center">
         @foreach ($allCategories as $category)
-            <li class="mt-3 list-cat">
-                <i class="{{$category->icon}} orange mr-2"></i> 
-                <b class="mr-2">{{$category->name}}</b>
+            <li class="mt-3 ">
+                <i class="{{$category->icon}} orange mr-2 list-cat"></i> 
+                <b class="mr-2 list-cat">{{$category->name}}</b>
                 <a class="btn btn-primary" href="/categorias/{{$category->id}}/edit">EDITAR</a>
 
 

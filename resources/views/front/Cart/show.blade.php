@@ -11,7 +11,7 @@
 
     @if ($product->is_paid == 0)
 
-    <div class="card d-inline-block product-cart mt-2 mr-2 justify-content-between">
+    <div class="card d-inline-block product-cart mt-2 mr-2 justify-content-between" style="width: 18rem;">
         <img class="card-img-top" src="/storage/products/{{ $product->image }}" alt="Card image cap">
         <div class="card-body">
             <h5 class="card-title">{{ $product->name }}</h5>
@@ -21,6 +21,7 @@
                 {{ method_field('DELETE') }}
                 <button type="submit" class="btn btn-danger button-cart"><i class="fas fa-times"></i></button>
             </form>
+            <a class="btn btn-primary" href="/products/{{ $product->id }}">VER MÁS</a>
         </div>
     </div>
 

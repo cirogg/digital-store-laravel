@@ -9,10 +9,10 @@
         <a class="btn btn-warning" href="/brands/create"><i class="fas fa-plus"></i>  Crear nueva marca</a>
     </div>
 
-    <ul>
+    <ul class="text-center">
         @foreach ($allBrands as $brand)
             <li class="mt-2">
-                {{$brand->name}}
+                <b class="mr-2 list-cat">{{$brand->name}}</b>
                 <a class="btn btn-primary" href="/brands/{{$brand->id}}/edit">EDITAR</a>
 
 
@@ -21,6 +21,7 @@
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$brand->id}}">
                         ELIMINAR
                 </button>
+                <hr>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal{{$brand->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

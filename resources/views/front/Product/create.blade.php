@@ -4,7 +4,7 @@
 
 @section('mainContent')
 
-    <h2 class="text-center mt-3 mb-3">Formulario para crear producto</h2>
+    <h1 class="text-center mt-3 mb-3">Formulario para crear producto</h1>
    {{-- @if (count($errors))
         <ul>
             @foreach ($errors->all() as $error)
@@ -117,7 +117,7 @@
             
             <div class="col-12 col-md-6">
                 <div class="form-check">
-                        <input class="form-check-input" name="featured" type="checkbox" value="" id="defaultCheck1">
+                        <input class="form-check-input" name="featured" type="checkbox" value="1" id="defaultCheck1">
                         <label class="form-check-label" for="defaultCheck1">
                         Producto destacado
                         </label>

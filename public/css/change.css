@@ -125,8 +125,8 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 130px;
-  height: 130px;
+  width: 95px;
+  height: 95px;
   border-radius: 50%;
   background-color: #000;
 
@@ -134,7 +134,7 @@ body {
 }
 
 .products-nav ul li a i {
- font-size: 1.5rem;
+ font-size: 2rem;
  color: #644cee;
  margin-bottom: 5px;
 }
@@ -327,6 +327,10 @@ body {
 
 }
 
+.list-cat {
+  font-size: 1.2rem;
+}
+
 
 @media ( min-width: 574px ){
 
@@ -336,6 +340,10 @@ body {
 
   .container-img {
     align-items: center;
+  }
+
+  .list-cat {
+    font-size: 2.5rem;
   }
 
 }
@@ -360,8 +368,8 @@ body {
   }
 
   .products-nav ul li a {
-    width: 95px;
-    height: 95px;
+    width: 130px;
+    height: 130px;
   }
 
   .banner img {
@@ -410,9 +418,7 @@ body {
   font-size: 1.5em;
 }
 
-.list-cat {
-  font-size: 3rem;
-}
+
 
 
 

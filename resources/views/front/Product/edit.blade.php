@@ -3,7 +3,7 @@
 @section('pageTitle', 'Editar Producto')
 
 @section('mainContent')
-    <h2>Formulario para editar producto</h2>
+    <h1 class="mt-3 text-center">Formulario para editar producto</h1>
 
 
 

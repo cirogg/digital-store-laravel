@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="/css/styles.css">
 </head>
 <body>
-    <div id="app">
+    <div id="app" class="margin-template">
 
         {{-- @include('/resources/views/front/partials/navbar'); --}}
-        @include('front.navbar');
+        @include('front.navbar')
         <main class="py-4">
             @yield('content')
         </main>

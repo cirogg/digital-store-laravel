@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
 
        view()->composer('welcome', function ($view) {
         $view->with([
-            'products' => \App\Product::where('featured', 1)->orderBy('updated_at')->limit(6)->get(),
+            'products' => \App\Product::where('featured', 1)->orderBy('updated_at', 'desc')->limit(6)->get(),
             ]);
     });
 

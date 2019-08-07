@@ -133,7 +133,7 @@ body {
 }
 
 .products-nav ul li a i {
- font-size: 1.5rem;
+ font-size: 2rem;
  color: #ff6961;
  margin-bottom: 5px;
 }
@@ -326,6 +326,10 @@ body {
 
 }
 
+.list-cat {
+  font-size: 1.2rem;
+}
+
 
 @media ( min-width: 574px ){
 
@@ -335,6 +339,10 @@ body {
 
   .container-img {
     align-items: center;
+  }
+
+  .list-cat {
+    font-size: 2.5rem;
   }
 
 }
@@ -407,10 +415,6 @@ body {
   top: -1px;
   padding: 5px;
   font-size: 1.5em;
-}
-
-.list-cat {
-  font-size: 3rem;
 }
 
 

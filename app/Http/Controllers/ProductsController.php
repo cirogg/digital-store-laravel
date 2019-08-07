@@ -168,6 +168,7 @@ class ProductsController extends Controller
     public function update(Request $request, $id)
     {
         $productUpdate = Product::findOrFail($id);
+        
 
         $request->validate([
 
@@ -188,14 +189,18 @@ class ProductsController extends Controller
             'price.required' => 'Ponele precio o nos fundimos'
             ]);
 
-        $productUpdate = new Product;
 
         $productUpdate->name = $request->input('name');
         $productUpdate->price = $request->input('price');
         $productUpdate->description = $request->input('description');
         $productUpdate->category_id = $request->input('category_id');
         $productUpdate->brand_id = $request->input('brand_id');
-        $productUpdate->featured = $request->input('featured');
+
+        if ($request->input('featured')) {
+            $productUpdate->featured = $request->input('featured');
+        } else {
+            $productUpdate->featured = 0;
+        }
 
         $imagen = $request->file('image');
 
@@ -205,12 +210,9 @@ class ProductsController extends Controller
             $productUpdate->image = $finalImage;
         }
 
-
         $productUpdate->save();
 
-
-
-        return redirect('/products/create'); //Esto hay que redireccionarlo a otro lado.
+        return redirect('/products');
 
     }
 
