@@ -10,7 +10,7 @@
 - Cambio de estilo de web.
 
 
-###Devs
+### Devs
 [Ciro Gonzalez](https://github.com/CiroGg "Ciro Gonzalez")
 [Onnig Panossian](https://github.com/OnnigPano "Onnig Panossian")
 [Tiago Gonzalez](https://github.com/Tiagoman "Tiago Gonzalez")
@@ -20,7 +20,7 @@
 
 
 
-###Links útiles
+### Links útiles
 
 [Laravel](https://laravel.com "Laravel")
 [Slick](https://kenwheeler.github.io/slick/ "Slick")
@@ -28,4 +28,4 @@
 
 
 
-###End
+### End
