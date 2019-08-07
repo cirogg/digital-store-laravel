@@ -56,7 +56,8 @@ class UsersController extends Controller
 
             if ($id == Auth::user()->id or Auth::user()->admin == 1) {
                 $userFound = User::findOrFail($id);
-                return view('front.User.show', compact('userFound'));
+                $item = null;
+                return view('front.User.show', compact('userFound', 'item'));
             }else {
                 $userFound = Auth::user();
                 return redirect("/users/" . "$userFound->id");
@@ -185,9 +186,9 @@ class UsersController extends Controller
 
         //$email = $request;
 
-        $userFound = User::where('email', 'LIKE', $item)->get();
+        $userFound = User::where('email', 'LIKE', $item)->first();
 
-        return view('back.User.profile', compact('userFound', 'item') );
+        return view('front.User.show', compact('userFound', 'item') );
     }
 
     /**

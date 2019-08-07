@@ -13,7 +13,7 @@
 
     @include('front.navbar')
 
-    <div class="container">
+    <div class="container margin-template">
         @yield('mainContent')
     </div>
 

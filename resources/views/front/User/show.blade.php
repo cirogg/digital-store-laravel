@@ -2,7 +2,14 @@
 
 @section('pageTitle', 'Perfil de usuario')
 
+
 @section('mainContent')
+
+@if ($item != null)
+    
+<h1 class="mt-3 mb-3">Resultado de la búsqueda de "{{ $item }}"</h1>
+@endif
+
 <div class="card-columns">
 
 
