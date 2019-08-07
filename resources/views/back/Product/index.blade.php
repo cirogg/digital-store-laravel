@@ -39,16 +39,24 @@
             <h5> {{ $productFound->name  }} </h5>
             <p class="card-text">{{ $productFound->description }}</p>
             <p class="card-text">Precio: {{ $productFound->price }}</p>
+
+
             <div class="form-inline ">
+
+                @if (Auth::user() && Auth::user()->admin == 1)
                     <form class="m-auto" action="/products/{{ $productFound->id }}/edit" method="get">
                         <button class="btn btn-success" type="submit">EDITAR</button>
                     </form>
+                @endif
 
                     {{-- MODAL BOOTSTRAP PARA ELIMINAR --}}
                     <!-- Button trigger modal -->
+
+                    @if (Auth::user() && Auth::user()->admin == 1)
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{$productFound->id}}">
                       ELIMINAR
                     </button>
+                    @endif
 
                     <!-- Modal -->
                     <div class="modal fade" id="exampleModal{{$productFound->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
