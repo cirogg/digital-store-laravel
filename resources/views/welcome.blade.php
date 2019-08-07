@@ -35,9 +35,9 @@
                 </div>
 
                 <nav class="sociales">
-                  <a href="#"><img src="/webimages/facebook.png" alt="icono facebook"></a>
-                  <a href="#"><img src="/webimages/instagram.png" alt="icono instagram"></a>
-                  <a href="#"><img src="/webimages/twitter.png" alt="icono twitter"></a>
+                  <a href="#"><img class="redondo" src="/webimages/facebook.png" alt="icono facebook"></a>
+                  <a href="#"><img class="redondo" src="/webimages/instagram.png" alt="icono instagram"></a>
+                  <a href="#"><img class="redondo" src="/webimages/twitter.png" alt="icono twitter"></a>
                 </nav>
 
               </div>
@@ -51,20 +51,9 @@
                     @foreach ($categories as $category)
                     <li><a href="#"><i class="{{$category->icon}}"></i>{{$category->name}}</a></li>
                     @endforeach
-                    {{-- <li><a href="#"><i class="fas fa-laptop"></i>Notebooks</a></li>
-                    <li><a href="#"><i class="fas fa-tv"></i>TVs y Monitores</a></li>
-                    <li><a href="#"><i class="fas fa-tablet-alt"></i>Tablets</a></li>
-                    <li><a href="#"><i class="far fa-clock"></i>Smartwatches</a></li>
-                    <li><a href="#"><i class="fas fa-plus"></i>Otras Categorías</a></li> --}}
+                   
                   </ul>
                 </nav>
-
-                <!-- Carousel  -->
-                {{-- <div class="test-car">
-                    <div><img class="d-block w-100" src="/webimages/summer-tech-wide.jpg" alt="First slide"></div>
-                    <div><img class="d-block w-100" src="/webimages/outlet-tech-small-wide.jpg" alt="Second slide"></div>
-                    <div><img class="d-block w-100" src="/webimages/sales-img-small-wide.jpg" alt="Third slide"></div>
-                </div> --}}
 
                     <div class="row no-gutters">
                       <div class="container-oferta col-12 col-lg-12 col-md-12">
