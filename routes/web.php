@@ -25,7 +25,7 @@ Route::get('/faq', function () {
     return view('front.faq');
 });
 
-
+Route::middleware('admin')->get('/users/search', 'UsersController@searchByEmail');
 
 // Route::get('/products/create' , 'ProductsController@create');
 // Route::get('/products/{id}/edit', 'ProductsController@edit');
@@ -61,7 +61,7 @@ Route::middleware('admin')->group(function ()
 	Route::delete('/products/{id}', 'ProductsController@destroy');
 	Route::get('/products/{id}/edit', 'ProductsController@edit');
 	//USERS
-	Route::middleware('auth')->get('/users/search', 'UsersController@searchByEmail');
+	
 	Route::middleware('auth')->resource('/users', 'UsersController')->except(['create', 'destroy', 'edit']);
 	//Admin-control
 	Route::get('/admin', function(){

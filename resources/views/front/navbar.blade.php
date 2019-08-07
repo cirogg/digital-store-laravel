@@ -11,7 +11,7 @@ foreach ($categories as $category) {
 {{dd($test)}} --}}
 
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
             DIGITAL <span class="orange ">STORE</span>

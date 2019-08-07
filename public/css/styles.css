@@ -35,6 +35,9 @@ body {
 
 /* BARRA NAVEGACIÓN */
 
+.margin-template {
+  margin-top: 80px;
+}
 
 .navbar-brand {
   font-size: 1.5em;
@@ -58,6 +61,7 @@ body {
 /* BANNER */
 
 .banner {
+  margin-top: 64px;
   text-align: center;
   position: relative;
   width: 100%;
