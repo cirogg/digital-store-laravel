@@ -4,7 +4,10 @@
 - Responsive
 - Traduccion de lenguaje
 - Login via email o via username
-- Validación de formularios en back y front. Php y JS.
+- Usuarios / Administradores
+- Rutas a las que solo pueden acceder Administradores
+- Redirecciones con criterio
+- Validación de formularios en back y front. Php y JS
 - Carrito de compras
 - CRUD-> Categories, Brands, Users, Cart, Products
 - Cambio de estilo de web.
