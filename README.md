@@ -26,7 +26,9 @@
 ### Links útiles
 
 [Laravel](https://laravel.com "Laravel")
+
 [Slick](https://kenwheeler.github.io/slick/ "Slick")
+
 [Bootstrap](https://getbootstrap.com "Bootstrap")
 
 
