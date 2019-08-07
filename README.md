@@ -12,10 +12,13 @@
 
 ### Devs
 [Ciro Gonzalez](https://github.com/CiroGg "Ciro Gonzalez")
+
 [Onnig Panossian](https://github.com/OnnigPano "Onnig Panossian")
+
 [Tiago Gonzalez](https://github.com/Tiagoman "Tiago Gonzalez")
 
-###Devs que nos abandonaron para ir a tomar vino
+
+### Devs que nos abandonaron para ir a tomar vino
 [Herni Torres](https://github.com/hernitorres "Herni Torres")
 
 
