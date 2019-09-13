@@ -17,8 +17,13 @@ window.addEventListener('load', function () {
             localStorage.setItem('cssCookie', cssStyles.getAttribute('href'));
         })
     }
-
-    cssStyles.setAttribute('href', localStorage.getItem('cssCookie'));
+    
+    if ( localStorage.getItem('cssCookie') ) {
+        
+        cssStyles.setAttribute('href', localStorage.getItem('cssCookie'));
+    }
+        
+    
     
 
 });
